@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add Product</title>
+    <title>Add Color</title>
 
     <!-- Custom fonts for this template -->
     @include('admin_tpl/style')
@@ -72,7 +72,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Thêm sản phẩm </h1>
+                    <h1 class="h3 mb-2 text-gray-800">Thêm Màu </h1>
 
                     <br>
 
@@ -80,37 +80,31 @@
                     <div class="card shadow mb-4">
 
                         <div class="card-body">
-                            <form action="/admin/add_product" method="post" enctype="multipart/form-data">
+                            <form action="/admin/add_color/sizeid={{$sizes->id}}" method="post" enctype="multipart/form-data">
                                 @method('patch')
                                 @csrf
                                 Tên sản phẩm <br>
-                                <input type="text" name="ProductName" required class="table-bordered"><br> <br>
-                                <div>
-                                    <label for="CatName">Brand </label>
-                                    <select name="CatName" class="table-bordered" id="CatName" onChange="updateCat()">
-                                        <option value="Apple">Apple</option>
-                                        <option value="Samsung">Samsung</option>
-                                        <option value="Xiaomi">Xiaomi</option>
-                                    </select>
-                                </div> 
-                                <input type="text" name="category_id" id="category_id" hidden><br>                                
-                                Product Picture <br> <br>                                
-                                <input type="file" name="image" required class="table-bordered"><br> <br>
-                                @error('image')
-                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br> <br>
-                                @enderror                                
+                                <input type="text" name="ProductName" class="table-bordered" disabled value="{{$products->ProductName}}"><br> <br>
+                               
+                                <input type="text" name="CatName" id="CatName" disabled value="{{$cat->CatName}}"><br><br>
                                 Product Description <br>
-                                <textarea type="text" name="ProductDescription"  rows="5" cols="60" required class="table-bordered"> </textarea><br>
+                                <textarea type="text" name="ProductDescription" rows="5" cols="60" class="table-bordered" disabled> {{$products->ProductDescription}}</textarea><br>
                                 Size <br>
-                                <input type="text" name="SizeName" required class="table-bordered"><br>
+                                <input type="text" name="SizeName" required class="table-bordered" disabled value="{{$sizes->SizeName}}"><br>
                                 Size Description<br>
-                                <input type="text" name="SizeDescription" required class="table-bordered"><br>
+                                <input type="text" name="SizeDescription" required class="table-bordered" disabled value="{{$sizes->SizeDescription}}"><br>
                                 Price <br>
                                 <input type="text" name="Price" required class="table-bordered"><br>
                                 Color <br>
                                 <input type="text" name="ColorName" required class="table-bordered"><br>
                                 Quantity <br>
                                 <input type="number" name="Quantity" required class="table-bordered"><br>
+                                <input type="text" name="category_id" id="category_id" hidden><br>
+                                Product Picture <br> <br>
+                                <input type="file" name="image" required class="table-bordered"><br> <br>
+                                @error('image')
+                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br> <br>
+                                @enderror
 
                                 <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
                             </form>
@@ -143,25 +137,6 @@
     <!-- Logout Modal-->
     @include('admin_tpl/logout_modal')
 
-
-    <script type="text/javascript">
-
-        function updateCat() {
-            var selected = document.getElementById('CatName');
-            var option = selected.options[selected.selectedIndex].value;
-            if (option == "Apple") {
-                document.getElementById('category_id').value = "1";
-            }
-            else if (option == "Samsung") {
-                document.getElementById('category_id').value = "2";
-            } else {
-                document.getElementById('category_id').value = "3 ";
-            }
-            console.log(document.getElementById('category_id').value);
-        }
-       
-        updateCat();
-    </script>
 
 
 </body>

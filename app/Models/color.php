@@ -28,5 +28,4 @@ class color extends Model
     }
 
 
-
 }

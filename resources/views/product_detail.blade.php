@@ -39,7 +39,7 @@
                 <hr class="sidebar-divider">
 
                 <li class="nav-item active">
-                    <a class="nav-link " href=""> <i class="fa-solid fa-bars"></i>Quản lý sản phẩm</a>
+                    <a class="nav-link " href="/admin"> <i class="fa-solid fa-bars"></i>Quản lý sản phẩm</a>
                 </li>
 
                 <!-- Divider -->
@@ -72,9 +72,7 @@
                     @include('admin_tpl/begin_page')
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Danh sách sản phẩm</h1>
-                    <div style="overflow:auto;">
-                        <a class="btn mr-2" style="float: right; background-color: #3b4a6b; color: rgba(255,255,255,.8)" href="admin/add_prodduct"> Thêm sản phẩm mới</a>
-                    </div>
+
                     <br>
 
                     <!-- Product list -->
@@ -87,16 +85,19 @@
                                     {{ session()->get('success') }}
                                 </div>
                                 @endif
+
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
                                             <th>Product Name</th>
-                                            <th>Brand</th>
-                                            <th>Description</th>
-                                            <th>Product Status</th>
-
-                                            <th width="12%"></th>
+                                            <th>Product Picture</th>
+                                            <th>Size Name</th>
+                                            <th>Size Description</th>
+                                            <th>Color</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Status</th>
 
 
                                         </tr>
@@ -104,24 +105,28 @@
 
                                     <tbody>
 
-                                        @foreach ($products as $product)
+                                        @foreach ($colors as $color)
 
                                         <tr>
                                             <td></td>
-                                            <td><a href="admin/product_detail/{{$product->id}}">{{$product->ProductName}}</a></td>
-                                            <td>{{$product->CatName}}</td>
-                                            <td>{{$product->ProductDescription}}</td>
-                                            <td>{{$product->ProductStatus}} </td>
+                                            <td>{{$color->size->product->ProductName}}</td>
+                                            <td><img src="/{{$color->img->URL}}" alt="" style="height:60px; width:100px;"></td>
+                                            <td>{{$color->size->SizeName}}</td>
+                                            <td>{{$color->size->SizeDescription}}</td>
+                                            <td>{{$color->ColorName}}</td>
+                                            <td>{{$color->Quantity}}</td>
+                                            <td>{{number_format($color->size->Price)}}</td>
+
+
 
                                             <td>
-                                                <a class="p-1 m-1 btn btn-primary btn-block btn-sm" href="admin/edit_product/productid={{$product->id}}">Sửa</a>
-                                                <form action="admin/delete_product/productid={{$product->id}}" method="post" onsubmit="return confirm('Bạn muốn xóan dòng dữ liệu này?')">
-                                                   
-                                                    @method('delete')
+                                                <a class="p-1 m-1 btn btn-primary btn-block btn-sm" href="/admin/edit_size/colorid={{$color->id}}">Sửa</a>
+                                                <form action="/admin/delete_color/colorid={{$color->id}}" method="post" onsubmit="return confirm('Bạn muốn xóan dòng dữ liệu này?')">
                                                     @csrf
-                                                    <button type="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
+                                                    @method('delete')
+                                                    <button type ="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
                                                 </form>
-                                                <a class="p-1 m-1 btn btn-secondary btn-block btn-sm" href="admin/add_size/{{$product->id}}">Thêm size</a>
+                                                <a class="p-1 m-1 btn btn-secondary btn-block btn-sm" href="/admin/add_color/sizeid={{$color->size->id}}">Thêm màu</a>
                                             </td>
                                         </tr>
 
@@ -130,7 +135,6 @@
                                     </tbody>
 
                                 </table>
-                                {!! $products->links() !!}
 
                             </div>
                         </div>

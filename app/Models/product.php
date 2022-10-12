@@ -12,7 +12,7 @@ class product extends Model
     protected $fillable = [
         'id',
         'ProductName',
-        'CatID',
+        'category_id',
         'ProductDescription',
         'ProductStatus'
         
@@ -31,5 +31,7 @@ class product extends Model
         return $this->hasManyThrough('App\Models\color','App\Models\size');
     }
 
+    
 
+   
 }

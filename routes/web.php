@@ -20,17 +20,49 @@ Route::get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'
 // authenticate user login
 Auth::routes();
 
+// controller cho sản phẩm 
 //reconfirm password 
 Route::middleware('password.confirm')->get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'])->name('showproduct');
-//select Category
-Route::get('admin/selectCat',[App\Http\Controllers\admincontroller::class, 'selectCat']);
+//select product detail 
+Route::get('admin/product_detail/{id}',[App\Http\Controllers\admincontroller::class, 'product_detail'])->name('product.detail');
 // add product
 Route::get('admin/add_prodduct',[App\Http\Controllers\admincontroller::class, 'add_product'])->name('add.product');
 //lưu thông tin product added
 Route::patch('/admin/add_product', [App\Http\Controllers\admincontroller::class, 'store_product'])->name('store.product');
+//add size 
+Route::get('admin/add_size/{id}',[App\Http\Controllers\admincontroller::class, 'add_size'])->name('add.size');
+//lưu size mới
+Route::patch('/admin/add_size/{id}', [App\Http\Controllers\admincontroller::class, 'store_size'])->name('store.size');
+//add color
+Route::get('admin/add_color/sizeid={id}',[App\Http\Controllers\admincontroller::class, 'add_color'])->name('add.color');
+//lưu color mới
+Route::patch('/admin/add_color/sizeid={id}', [App\Http\Controllers\admincontroller::class, 'store_color'])->name('store.color');
+//edit product
+Route::get('admin/edit_product/productid={id}',[App\Http\Controllers\admincontroller::class, 'edit_product'])->name('edit.product');
+//save edited product
+Route::post('admin/edit_product/productid={id}',[App\Http\Controllers\admincontroller::class, 'store_edit_product'])->name('store.edit.product');
+//edit size product
+Route::get('admin/edit_size/colorid={id}',[App\Http\Controllers\admincontroller::class, 'edit_size'])->name('edit.size');
+//lưu edit size
+Route::patch('admin/edit_size/colorid={id}',[App\Http\Controllers\admincontroller::class, 'store_edit_size'])->name('store.edit.size');
+//xóa thông tin dòng color
+Route::delete('admin/delete_color/colorid={id}',[App\Http\Controllers\admincontroller::class, 'delete_color']);
+//xóa thông tin 1 sản phâm
+Route::delete('/admin/delete_product/productid={$id}',[App\Http\Controllers\admincontroller::class, 'delete_product']);
 
+
+
+
+
+//controller cho order
 //show order list
 Route::get('/admin/order', [App\Http\Controllers\admincontroller::class, 'showorder'])->middleware('CheckLogin')->name('showorder');
+// order detail
+Route::get('/admin/order_detail', [App\Http\Controllers\admincontroller::class, 'showorder_detail']);
+
+
+
+//controller cho user
 //show user list, if level 1 -> can access
 Route::get('/admin/user', [App\Http\Controllers\admincontroller::class, 'showuser'])->middleware('CheckLogin')->name('showuser');
 //add user
@@ -44,5 +76,4 @@ Route::patch('/admin/edit_user/{id}', [App\Http\Controllers\admincontroller::cla
 //Xóa thông tin nhân viên
 Route::delete('/admin/delete_user/{id}', [App\Http\Controllers\admincontroller::class, 'delete_user'])->middleware('CheckLogin')->name('delete.user');
 
-// order detail
-Route::get('/admin/order_detail', [App\Http\Controllers\admincontroller::class, 'showorder_detail']);
+

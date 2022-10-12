@@ -85,6 +85,11 @@
 
                     <div class="card-body">
                             <div class="table-responsive">
+                            @if(session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('success') }}
+                                </div>
+                                @endif
                               
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
