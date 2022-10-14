@@ -4,7 +4,12 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admincontroller;
-
+use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CategoryComponent;
+use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ShopComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +20,17 @@ use App\Http\Controllers\admincontroller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//
+// Page Shop product
+// --------------------------------------------------------------------------
+Route::get('/', HomeComponent::class);
+Route::get('/index', HomeComponent::class);
+Route::get('/shop', ShopComponent::class);
+Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
+Route::get('/cart', CartComponent::class)->name('product.cart');
+Route::get('/checkout', CheckoutComponent::class);
+
 
 Route::get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'])->middleware('CheckLogin')->name('showproduct');
 // authenticate user login
