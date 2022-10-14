@@ -95,28 +95,26 @@
                                             <th>Brand</th>
                                             <th>Description</th>
                                             <th>Product Status</th>
-
+                                            <th>Feature</th>
                                             <th width="12%"></th>
 
 
                                         </tr>
                                     </thead>
-
                                     <tbody>
-
                                         @foreach ($products as $product)
-
                                         <tr>
                                             <td></td>
                                             <td><a href="admin/product_detail/{{$product->id}}">{{$product->ProductName}}</a></td>
                                             <td>{{$product->CatName}}</td>
                                             <td>{{$product->ProductDescription}}</td>
                                             <td>{{$product->ProductStatus}} </td>
+                                            <td><img src="{{$product->Featured}}"style="height:60px; width:100px;"></td>
 
                                             <td>
                                                 <a class="p-1 m-1 btn btn-primary btn-block btn-sm" href="admin/edit_product/productid={{$product->id}}">Sửa</a>
                                                 <form action="admin/delete_product/productid={{$product->id}}" method="post" onsubmit="return confirm('Bạn muốn xóan dòng dữ liệu này?')">
-                                                   
+
                                                     @method('delete')
                                                     @csrf
                                                     <button type="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
@@ -124,11 +122,8 @@
                                                 <a class="p-1 m-1 btn btn-secondary btn-block btn-sm" href="admin/add_size/{{$product->id}}">Thêm size</a>
                                             </td>
                                         </tr>
-
                                         @endforeach
-
                                     </tbody>
-
                                 </table>
                                 {!! $products->links() !!}
 

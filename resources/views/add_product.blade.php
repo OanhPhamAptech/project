@@ -111,6 +111,12 @@
                                 <input type="text" name="ColorName" required class="table-bordered"><br>
                                 Quantity <br>
                                 <input type="number" name="Quantity" required class="table-bordered"><br>
+                                Feature <br>
+                                <input type="file" name="Featured" required class="table-bordered"><br> <br>
+                                @error('image')
+                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br> <br>
+                                @enderror                                
+
 
                                 <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
                             </form>

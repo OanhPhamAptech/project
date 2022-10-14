@@ -32,13 +32,17 @@ class admincontroller extends Controller
     public function product_detail($id)
     {
         if (Auth::check()) {
-            $products = db::table('product');
-            $sizes = product::find($id)->size;
-            $colors = product::find($id)->color;
-            foreach ($colors as $color) {
-                $color->img()->get('URL');
+            if ($id == null) {
+            } else {
+                $products = db::table('product');
+                $sizes = product::find($id)->size;
+                $colors = product::find($id)->color;
+                foreach ($colors as $color) {
+                    $color->img()->get('URL');
+                }
+
+                return view('product_detail', compact('sizes', 'colors',));
             }
-            return view('product_detail', compact('sizes', 'colors',));
         } else {
             return redirect('/login');
         }
@@ -62,9 +66,9 @@ class admincontroller extends Controller
         if (Auth::check()) {
             DB::beginTransaction();
             try {
-
                 //thêm dữ liệu bảng size
                 $products = product::find($id);
+                $cat = category::find($products->category_id);
                 $sizes = new size;
                 $sizes = $products->size()->create(
                     [
@@ -87,14 +91,15 @@ class admincontroller extends Controller
                     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
                 ]);
                 $imageName = time() . '.' . $request->image->extension();
-                $request->file('image')->move(public_path('img/' . $request->input('CatName') . '/'), $imageName);
+                $request->file('image')->move(public_path('img/' . $cat->CatName . '/'), $imageName);
                 $images = new image;
                 $colors = color::find($colors->id);
                 $images = $colors->img()->create([
 
-                    'URL' => 'img/' . $request->input('CatName') . '/' . $imageName,
+                    'URL' => 'img/' . $cat->CatName . '/' . $imageName,
                     'product_id' => $products->id
                 ]);
+
                 DB::commit();
             } catch (\Exception $e) {
                 DB::rollBack();
@@ -130,6 +135,7 @@ class admincontroller extends Controller
                 $sizes = size::find($id);
                 $products = $sizes->product()->where('id', $sizes->product_id)->get();
                 $products = product::find($sizes->product_id);
+                $cat = category::find($products->category_id);
                 $colors = new color;
                 $colors = $sizes->color()->create(
                     [
@@ -142,12 +148,12 @@ class admincontroller extends Controller
                     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
                 ]);
                 $imageName = time() . '.' . $request->image->extension();
-                $request->file('image')->move(public_path('img/' . $request->input('CatName') . '/'), $imageName);
+                $request->file('image')->move(public_path('img/' . $cat->CatName . '/'), $imageName);
                 $images = new image;
                 $colors = color::find($colors->id);
                 $images = $colors->img()->create([
 
-                    'URL' => 'img/' . $request->input('CatName') . '/' . $imageName,
+                    'URL' => 'img/' . $cat->CatName . '/' . $imageName,
                     'product_id' => $products->id
                 ]);
                 DB::commit();
@@ -181,6 +187,12 @@ class admincontroller extends Controller
                 $products->ProductName = $request->ProductName;
                 $products->category_id = $request->input('category_id');
                 $products->ProductDescription = $request->ProductDescription;
+                $request->validate([
+                    'Featured' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+                ]);
+                $imageName = time() . '.' . $request->image->extension();
+                $request->file('Featured')->move(public_path('img/' . $request->input('CatName') . '/'), $imageName);
+                $products->Featured = 'img/' . $request->CatName . '/' . $imageName;              
                 $products->save();
                 //thêm dữ liệu bảng size
                 $products = product::find($products->id);
@@ -211,7 +223,7 @@ class admincontroller extends Controller
                 $colors = color::find($colors->id);
                 $images = $colors->img()->create([
 
-                    'URL' => 'img/' . $request->input('CatName') . '/' . $imageName,
+                    'URL' => 'img/' . $request->CatName . '/' . $imageName,
                     'product_id' => $products->id
                 ]);
                 DB::commit();
@@ -281,19 +293,23 @@ class admincontroller extends Controller
                 'SizeDescription' => $request->SizeDescription,
                 'Price' => $request->Price
             ]);
+            $sizes = size::find($colors->size_id);
+            $products = product::find($sizes->product_id);
+            $cat = category::find($products->category_id);
 
             // update ảnh nếu có 
-            if (!empty($request->input('image'))) {
+            if (!empty($request->image)) {
                 $request->validate([
                     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
                 ]);
                 $imageName = time() . '.' . $request->image->extension();
-                $request->file('image')->move(public_path('img/' . $request->input('CatName') . '/'), $imageName);
+                $request->file('image')->move(public_path('img/' . $cat->CatName . '/'), $imageName);
                 $images = db::table('image');
                 $images = $colors->img()->update([
-                    'URL' => 'img/' . $request->input('CatName') . '/' . $imageName,
+                    'URL' => 'img/' . $cat->CatName . '/' . $imageName,
                 ]);
             }
+
             // lấy id cho route 
             $sizes = size::find($colors->size_id);
             $products = product::find($sizes->product_id);
@@ -306,12 +322,13 @@ class admincontroller extends Controller
     // Xóa 1 dòng size, 1 dòng color
     public function delete_color($id)
     {
-
         if (Auth::check()) {
-            $colors = color::find($id);
+            $image = image::find($id);
+            $colors = color::find($image->color_id);
+            $sizes = size::find($colors->size_id);
+            $image->delete();
             $colors->delete();
             // lấy id cho route 
-            $sizes = size::find($colors->size_id);
             $products = product::find($sizes->product_id);
             return redirect()->route('product.detail', [$products])->with('success', "Xóa dòng dữ liệu thành công");
         } else {

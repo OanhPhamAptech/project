@@ -14,7 +14,8 @@ class product extends Model
         'ProductName',
         'category_id',
         'ProductDescription',
-        'ProductStatus'
+        'ProductStatus',
+        'Featured'
         
     ];
 
