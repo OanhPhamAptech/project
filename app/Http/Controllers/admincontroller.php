@@ -28,6 +28,24 @@ class admincontroller extends Controller
             return redirect('/login');
         }
     }
+    //search function
+    public function search(request $request)
+    {
+        if (Auth::check()) {
+            $search = $request->input('search');
+            $products = DB::table('category')
+                ->join('product', 'product.category_id', '=', 'category.id')
+                ->where('ProductName', 'LIKE', "%{$search}%")
+                ->orWhere('ProductDescription', 'LIKE', "%{$search}%")
+                ->orwhere('CatName','LIKE',"%{$search}%")
+                
+                ->paginate(5);
+
+            return view('admin', compact('products'));
+        } else {
+            return redirect('/login');
+        }
+    }
     //hiển thị product detail
     public function product_detail($id)
     {
@@ -192,7 +210,7 @@ class admincontroller extends Controller
                 ]);
                 $imageName = time() . '.' . $request->image->extension();
                 $request->file('Featured')->move(public_path('img/' . $request->input('CatName') . '/'), $imageName);
-                $products->Featured = 'img/' . $request->CatName . '/' . $imageName;              
+                $products->Featured = 'img/' . $request->CatName . '/' . $imageName;
                 $products->save();
                 //thêm dữ liệu bảng size
                 $products = product::find($products->id);
@@ -279,7 +297,7 @@ class admincontroller extends Controller
             return redirect('/login');
         }
     }
-
+    // lưu edit size
     public function store_edit_size(request $request, $id)
     {
         if (Auth::check()) {

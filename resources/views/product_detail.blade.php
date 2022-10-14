@@ -121,7 +121,7 @@
 
                                             <td>
                                                 <a class="p-1 m-1 btn btn-primary btn-block btn-sm" href="/admin/edit_size/colorid={{$color->id}}">Sửa</a>
-                                                <form action="/admin/delete_color/colorid={{$color->img->id}}" method="post" onsubmit="return confirm('Bạn muốn xóan dòng dữ liệu này?')">
+                                                <form action="/admin/delete_color/colorid={{$color->img->id}}" method="post" onsubmit="return confirm('Bạn muốn xóa dòng dữ liệu này?')">
                                                     @csrf
                                                     @method('delete')
                                                     <button type ="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
