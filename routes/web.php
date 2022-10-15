@@ -48,7 +48,7 @@ Route::patch('admin/edit_size/colorid={id}',[App\Http\Controllers\admincontrolle
 //xóa thông tin dòng color
 Route::delete('admin/delete_color/colorid={id}',[App\Http\Controllers\admincontroller::class, 'delete_color']);
 //xóa thông tin 1 sản phâm
-Route::delete('admin/delete_product/productid={$id}',[App\Http\Controllers\admincontroller::class, 'delete_product'])->name('delete_product');
+Route::delete('admin/delete_product/productid={id}',[App\Http\Controllers\admincontroller::class, 'delete_product'])->name('delete_product');
 
 
 //search function

@@ -37,8 +37,8 @@ class admincontroller extends Controller
                 ->join('product', 'product.category_id', '=', 'category.id')
                 ->where('ProductName', 'LIKE', "%{$search}%")
                 ->orWhere('ProductDescription', 'LIKE', "%{$search}%")
-                ->orwhere('CatName','LIKE',"%{$search}%")
-                
+                ->orwhere('CatName', 'LIKE', "%{$search}%")
+
                 ->paginate(5);
 
             return view('admin', compact('products'));
@@ -359,7 +359,8 @@ class admincontroller extends Controller
         if (Auth::check()) {
             $products = product::find($id);
             $products->delete();
-            return redirect()->route('product.detail', [$products])->with('success', "Xóa dòng dữ liệu thành công");
+            
+            return redirect()->route('showproduct')->with('success', "Xóa dòng dữ liệu thành công");
         } else {
             return redirect('/login');
         }
