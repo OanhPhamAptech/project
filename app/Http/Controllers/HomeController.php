@@ -25,11 +25,4 @@ class HomeController extends Controller
   {
     return view('admin');
   }
-
-  public function cat_nav()
-  {
-    // $category = DB::table('category')->where('CatStatus', '1')->orderBy('id', 'desc')->select('*');
-    // $category = $category->get();
-    // return view('layouts.base')->with('category', $category);
-  }
 }
