@@ -16,7 +16,7 @@
               <div class="product-gallery">
                 <ul class="slides">
                   <li data-thumb="">
-                    <img src="" alt="{{$product->name}}" />
+                    <img src="" alt="" />
                   </li>
                 </ul>
               </div>
@@ -30,7 +30,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="#" class="count-review">(05 review)</a>
               </div>
-              <h2 class="product-name"></h2>
+              <h2 class="product-name">  </h2>
               <div class="short-desc">
 
               </div>
@@ -67,7 +67,7 @@
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
-                  {{$product->description}}
+                  
                 </div>
                 <div class="tab-content-item " id="add_infomation">
                   <table class="shop_attributes">

@@ -27,7 +27,7 @@ use App\Http\Livewire\ShopComponent;
 Route::get('/', HomeComponent::class);
 Route::get('/index', HomeComponent::class);
 Route::get('/shop', ShopComponent::class);
-Route::get('/product/product_{id}', DetailsComponent::class)->name('product.details');
+Route::get('/shop/product_{id}', DetailsComponent::class)->name('product.details');
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class);
 
