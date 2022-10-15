@@ -39,7 +39,7 @@
                 <hr class="sidebar-divider">
 
                 <li class="nav-item active">
-                    <a class="nav-link " href=""> <i class="fa-solid fa-bars"></i>Quản lý sản phẩm</a>
+                    <a class="nav-link " href="/admin"> <i class="fa-solid fa-bars"></i>Quản lý sản phẩm</a>
                 </li>
 
                 <!-- Divider -->
@@ -109,15 +109,13 @@
                                             <td>{{$product->CatName}}</td>
                                             <td>{{$product->ProductDescription}}</td>
                                             <td>{{$product->ProductStatus}} </td>
-                                            <td><img src="{{$product->Featured}}"style="height:60px; width:100px;"></td>
-
+                                            <td><img src="{{$product->Featured}}" style="height:60px; width:100px;"></td>
                                             <td>
                                                 <a class="p-1 m-1 btn btn-primary btn-block btn-sm" href="admin/edit_product/productid={{$product->id}}">Sửa</a>
-                                                <form action="admin/delete_product/productid={{$product->id}}" method="post" onsubmit="return confirm('Bạn muốn xóan dòng dữ liệu này?')">
-
-                                                    @method('delete')
+                                                <form action="/admin/delete_product/productid={{$product->id}}" method="post" onsubmit="return confirm('Bạn muốn xóa dòng dữ liệu này?')">
                                                     @csrf
-                                                    <button type="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
+                                                    @method('delete')
+                                                    <button type ="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
                                                 </form>
                                                 <a class="p-1 m-1 btn btn-secondary btn-block btn-sm" href="admin/add_size/{{$product->id}}">Thêm size</a>
                                             </td>
