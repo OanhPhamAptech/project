@@ -8,13 +8,12 @@ use Cart;
 
 class DetailsComponent extends Component
 {
-  // public $slug;
+  // public $id;
 
-  public function mount($slug)
-  {
-    // $this->slug = $slug;
-  }
-
+  // public function mount($id)
+  // {
+  //   $this->id = $id;
+  // }
   // public function store($product_id, $product_mame, $product_price)
   // {
   //   Cart::add($product_id, $product_mame, 1, $product_price)->associate('App\Models\Product');
@@ -24,9 +23,9 @@ class DetailsComponent extends Component
 
   public function render()
   {
-    $product = Product::where('slug', $this->slug)->first();
+    $product = Product::where('id', $this->id)->first();
     $popular_products = Product::inRandomOrder()->limit(5)->get();
-    $related_products = Product::where('category_id', $product->categpry_id)->inRandomOrder()->limit(5)->get();
-    return view('livewire.datails-component', ['product' => $product, 'popular_products' => $popular_products, 'related_products' => $related_products])->layout('layouts.base');
+    // $related_products = Product::where('category_id', $product->categpryid)->inRandomOrder()->limit(5)->get();
+    return view('livewire.datails-component', ['product' => $product])->layout('layouts.base');
   }
 }
