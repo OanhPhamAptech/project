@@ -20,7 +20,7 @@
           </div>
           <div class="card-body">
             <div class="detail-box">
-              <h6> {{$product->ProductName}} </h6>
+              <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
               <h6>Price:<span>$</span></h6>
             </div>
             <div class="">

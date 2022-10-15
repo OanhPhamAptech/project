@@ -55,7 +55,7 @@
             <div class="dropdown">
               <a href="/shop" class="btn">Product</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="  "> Apple Watch </a></li>
+                <li><a class="dropdown-item" href="">Watch </a></li>
               </ul>
             </div>
           </li>
