@@ -14,13 +14,13 @@
     @foreach ($product as $product)
     <div class="col-sm-3 ">
       <div class="card">
-        <a href="{{route('product.details',['id' => $product->id])}}">
+        <a href="{{route('product.details',['size_id' => $product->id])}}">
           <div class="img-box">
             <img src="{{asset($product->Featured)}}" alt="">
           </div>
           <div class="card-body">
             <div class="detail-box">
-              <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
+              <h6> {{$product->ProductName}} {{$product->SizeName}} {{$product->id}}</h6>
               <h6>Price:<span>${{$product->price}}</span></h6>
             </div>
             <div class="">

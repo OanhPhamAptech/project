@@ -16,7 +16,7 @@
               <div class="product-gallery">
                 <ul class="slides">
                   <li data-thumb="">
-                    <img src="" alt="" />
+                    <img src="{{asset($product->Featured)}}" alt="" />
                   </li>
                 </ul>
               </div>
@@ -30,7 +30,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="#" class="count-review">(05 review)</a>
               </div>
-              <h2 class="product-name">  </h2>
+              <h2 class="product-name"> Name: {{$product->ProductName}} </h2>
               <div class="short-desc">
 
               </div>
@@ -38,7 +38,7 @@
                 <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
               </div>
               <div class="wrap-price">
-                <span class="product-price"></span>
+                <span class="product-price">Price: {{$size->Price}} VNĐ </span>
               </div>
               <div class="stock-info in-stock">
                 <p class="availability">Availability: <b></b></p>
@@ -67,9 +67,9 @@
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
-                  
+                  {{$product->ProductDescription}}
                 </div>
-                <div class="tab-content-item " id="add_infomation">
+                <!-- <div class="tab-content-item " id="add_infomation">
                   <table class="shop_attributes">
                     <tbody>
                       <tr>
@@ -88,7 +88,7 @@
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </div> -->
                 <div class="tab-content-item" id="review">
                   <div class="wrap-review-form">
                     <div id="comments">
@@ -113,7 +113,7 @@
                           </div>
                         </li>
                       </ol>
-                    </div><!-- #comments -->
+                    </div>
 
                     <div id="review_form_wrapper">
                       <div id="review_form">
@@ -157,9 +157,9 @@
                             </p>
                           </form>
 
-                        </div><!-- .comment-respond-->
-                      </div><!-- #review_form -->
-                    </div><!-- #review_form_wrapper -->
+                        </div>
+                      </div>
+                    </div>
 
                   </div>
                 </div>

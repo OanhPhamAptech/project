@@ -35,6 +35,7 @@ class ShopComponent extends Component
     $product = DB::table('product')->where('ProductStatus','=','1')
     ->join('size','size.product_id','=','product.id')->select('product.ProductName','product.Featured', 'size.id','size.SizeName','size.price');
     $product = $product->get();
+    
     return view('livewire.shop-component', ['product' => $product])->layout("layouts.base");
   }
 }

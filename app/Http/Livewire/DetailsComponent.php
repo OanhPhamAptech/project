@@ -12,9 +12,9 @@ class DetailsComponent extends Component
 {
   // public $id;
 
-  public function mount($id)
+  public function mount($size_id)
   {
-    $this->_id = $id;
+    $this->size_id = $size_id;
   }
   // public function store($product_id, $product_mame, $product_price)
   // {
@@ -25,11 +25,13 @@ class DetailsComponent extends Component
 
   public function render()
   {
-    $product = Size::where('id', $this->id)->first();
-    // $size = DB::table('size')->join('product','size.product_id','=', $this->product_id)->select('*');
-    // $size = $size->get();
-    $popular_products = Product::inRandomOrder()->limit(5)->get();
+    $size = Size::where('id', $this->size_id)->first();
+    $product = $size->product()->where('id', $size->product_id)->get();
+    $product = product::find($size->product_id);
+
+    // $popular_products = Product::inRandomOrder()->limit(5)->get();
     // $related_products = Product::where('category_id', $product->categpryid)->inRandomOrder()->limit(5)->get();
-    return view('livewire.details-component', ['id' =>$product])->layout('layouts.base');
+    
+    return view('livewire.details-component', ['size' => $size, 'product' => $product])->layout('layouts.base');
   }
 }
