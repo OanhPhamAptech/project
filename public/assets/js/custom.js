@@ -40,10 +40,10 @@ function myMap() {
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
 
-$(document).ready(function () {
-  $('.shop_slick').slick({
+$(window).on('load', function(){
+  $('.shop-slick').slick({
     infinite: true,
-    slidesToShow: 4 ,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
     responsive: [
