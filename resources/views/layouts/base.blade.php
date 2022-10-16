@@ -16,7 +16,7 @@
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{{ url('assets/css/bootstrap.css') }}" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   <!--owl slider stylesheet -->
@@ -32,6 +32,10 @@
   <link href="css/responsive.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!--My css-->
+  <link rel="stylesheet" href="css/myStyle.css">
 
   <script src="https://kit.fontawesome.com/8e47a4543e.js" crossorigin="anonymous"></script>
   @livewireStyles()

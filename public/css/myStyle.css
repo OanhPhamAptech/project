@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-item a{
+    color: black;
+}
+
+.nav-item a:hover{
+    background-color: #ffc107;
+    color: white;
+}
+
+.nav-item a:active{
+    background-color: #ffc107;
+    color: white;
+
+}
+
+.productBox{
+    transition-duration: 0.7s;
+}
+
+.productBox:hover{
+    transform: scale(105%);
+    transition: 0.7s;
+}
+
+.formTop{
+    border-left: 3px solid #339901;
+}
+
+.formLeft{
+    height: 700px;
+}
+
+.box-arrow-top{
+    width: 100%;
+    height: auto;
+    background-color: #F2F2F2;
+    color: rgb(81, 81, 81);
+    padding: 10px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.box-arrow-top:after {
+    content: " ";
+    position: absolute;
+    left: 20px;
+    top: -15px;
+    border-top: none;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid #F2F2F2;
+}
+
+.hide{
+    display: none;
+}
+
+.divFormEmail{
+    position: relative;
+}
+
+.inpFormEmail{
+    width: 600px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.btnFormEmail{
+    border-radius: 30px;
+    position: absolute;
+    right: 0;
+}
+
+.divGetEmail{
+    padding: 100px 0;
+}
+
+@media only screen and (max-width: 576px) {
+    .formBig{
+        width: 100%;
+    }
+
+    .formLeft{
+        width: 100%;
+    }
+
+    .formRight{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .formBig{
+        width: 100%;
+    }
+
+    .formLeft{
+        width: 100%;
+    }
+
+    .formRight{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .formBig{
+        width: 100%;
+    }
+
+    .formLeft{
+        width: 60%;
+    }
+
+    .formRight{
+        width: 38%;
+    }
+}
+
