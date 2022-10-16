@@ -33,7 +33,7 @@ Route::get('/checkout', CheckoutComponent::class);
 
 
 Route::get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'])->middleware('CheckLogin')->name('showproduct');
-// authenticate user login
+// authenticate user login admin
 Auth::routes();
 
 // controller cho sản phẩm 
