@@ -41,7 +41,12 @@
                 <span class="product-price">Price: {{$size->Price}} VNĐ </span>
               </div>
               <div class="stock-info in-stock">
-                <p class="availability">Availability: <b></b></p>
+                <p class="color">Color: <b></b></p>
+                <div class="color-input">
+                  <select name="color" id="color-option" class="form-select" aria-label="Default select example">
+                    <option value="{{$color->ColorName}}">{{$color->ColorName}}</option>
+                  </select>
+                </div>
               </div>
               <div class="quantity">
                 <span>Quantity:</span>
