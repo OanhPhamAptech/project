@@ -31,24 +31,14 @@ class DetailsComponent extends Component
     $product = $size->product()->where('id', $size->product_id)->get();
     $product = Product::find($size->product_id);
 
-    $color = $size->color()->where('size_id', $size->id)->get();
-    $color = Color::find($size->id);
-
-    // $color = Color::table('color')->select('*');
-    // $color = $color->get();
-
-    // $color = $size->color()->where('size_id', $size->id)->first();
-    // $color = Color::find($size->id);
-
-    // $color = Color::where('size_id', $this->size_id)->join('size','size.id','=','color.size_id')
-    // ->where('color.size_id', $size->id)->select('*');
-    // $color = $color->get();
-    // $color = $colors->size()->where('id', $colors->size_id)->get();
-    // $color = Size::find($size->size_id);
+    $colors = Size::find($this->size_id)->color;
+    foreach ($colors as $color) {
+     $color->img()->get('URL');
+    }
 
     // $popular_products = Product::inRandomOrder()->limit(5)->get();
     // $related_products = Product::where('category_id', $product->categpryid)->inRandomOrder()->limit(5)->get();
     
-    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'color' => $color])->layout('layouts.base');
+    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors])->layout('layouts.base');
   }
 }

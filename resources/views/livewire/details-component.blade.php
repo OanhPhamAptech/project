@@ -44,7 +44,9 @@
                 <p class="color">Color: <b></b></p>
                 <div class="color-input">
                   <select name="color" id="color-option" class="form-select" aria-label="Default select example">
+                    @foreach ($colors as $color)
                     <option value="{{$color->ColorName}}">{{$color->ColorName}}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>
