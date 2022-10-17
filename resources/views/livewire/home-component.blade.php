@@ -195,36 +195,161 @@
           Xiaomi
         </h2>
       </div>
-      <div class="d-flex justify-content-center align-items-center shop-slick">
-        
-          @foreach($productsXiaomi as $productXiaomi)
-          <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
-            <div class="box shadow productBox">
-              <a href="">
-                <div class="img-box">
-                  <img src="{{ $productXiaomi->Featured }}" alt="">
-                </div>
-                <div class="detail-box d-flex flex-column justify-content-center align-items-center">
-                  <h6>
-                    {{ $productXiaomi->ProductName }}
-                  </h6>
-                  <h6>
-                    Price:
-                    <span>
-                      $ {{ $productXiaomi->Price }}
-                    </span>
-                  </h6>
-                </div>
-                <div class="new">
-                  <span>
-                    New
+      <div class="d-flex justify-content-center align-items-center shop_slick">
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
                   </span>
-                </div>
-              </a>
-            </div>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
           </div>
-          @endforeach
-        
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+          <div class="box shadow productBox">
+            <a href="">
+              <div class="img-box">
+                <img src="" alt="">
+              </div>
+              <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                <h6>aaaa</h6>
+                <h6>
+                  Price:
+                  <span>aaa$
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
       <div class="d-flex justify-content-center align-items-center"><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
     </div>

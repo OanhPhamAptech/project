@@ -40,8 +40,8 @@ function myMap() {
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
 
-$(window).on('load', function(){
-  $('.shop-slick').slick({
+$(document).ready(function () {
+  $('.shop_slick').slick({
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,

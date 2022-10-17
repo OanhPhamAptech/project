@@ -35,11 +35,6 @@
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!--My css-->
-  <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
   <link rel="stylesheet" href="css/myStyle.css">
 
   <script src="https://kit.fontawesome.com/8e47a4543e.js" crossorigin="anonymous"></script>
@@ -212,18 +207,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
 </script>
 <!-- custom js -->
-<script
-  type="text/javascript"
-  src="https://code.jquery.com/jquery-1.11.0.min.js"
-></script>
-<script
-  type="text/javascript"
-  src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
-></script>
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-></script>
 <script src="{{ url('assets/js/custom.js')}}"></script>
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
