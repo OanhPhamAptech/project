@@ -82,6 +82,32 @@
     padding: 100px 0;
 }
 
+.featured-carousel .owl-next,
+.featured-carousel .owl-prev{
+    position: absolute;
+    top: 40%;
+    font-size: 30px !important;
+    outline: none;
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.featured-carousel .owl-next{
+    right: 20px;
+}
+
+.featured-carousel .owl-prev{
+    left: 20px;
+}
+
+.featured-carousel .owl-next:hover,
+.featured-carousel .owl-prev:hover{
+    background: none !important;
+    outline: none !important;
+    color: black !important;
+    transform: scale(115%);
+}
+
 @media only screen and (max-width: 576px) {
     .formBig{
         width: 100%;
