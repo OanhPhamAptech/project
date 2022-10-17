@@ -43,7 +43,7 @@ function myMap() {
 $(document).ready(function () {
   $('.shop_slick').slick({
     infinite: true,
-    slidesToShow: 4 ,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
     responsive: [

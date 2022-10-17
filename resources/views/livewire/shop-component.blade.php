@@ -23,9 +23,6 @@
               <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
               <h6>Price:<span>{{number_format($product->price)}} VNĐ</span></h6>
             </div>
-            <div class="">
-              <a href="#" class="btn btn-success add-to-card" wire:click.prevent="">Thêm vào giỏ hàng</a>
-            </div>
             <div class="new">
               <span> New </span>
             </div>

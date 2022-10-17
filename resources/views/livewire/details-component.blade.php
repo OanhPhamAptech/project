@@ -5,8 +5,8 @@
     <div class="container">
       <div class="wrap-breadcrumb">
         <ul>
-          <li class="item-link"><a href="#" class="link">home</a></li>
-          <li class="item-link"><span>detail</span></li>
+          <li class="item-link"><a href="/" class="link">home</a></li>
+          <li class="item-link"><span>Cart</span></li>
         </ul>
       </div>
       <div class="row">
@@ -16,7 +16,7 @@
               <div class="product-gallery">
                 <ul class="slides">
                   <li data-thumb="">
-                    <img src="{{asset($product->Featured)}}" alt="" />
+                    <img src="{{asset($product->Featured)}}" alt="{{$product->ProductName}}" />
                   </li>
                 </ul>
               </div>
@@ -52,18 +52,9 @@
               </div>
               <div class="quantity">
                 <span>Quantity: {{$color->Quantity}} </span>
-                <div class="quantity-input">
-                  <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*">
-                  <a class="btn btn-reduce" href="#"></a>
-                  <a class="btn btn-increase" href="#"></a>
-                </div>
               </div>
               <div class="wrap-butons">
-                <a href="#" class="btn add-to-cart" wire:click.prevent="">Add to Cart</a>
-                <div class="wrap-btn">
-                  <a href="#" class="btn btn-compare">Add Compare</a>
-                  <a href="#" class="btn btn-wishlist">Add Wishlist</a>
-                </div>
+                <a href="/cart" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{$size->product_id}}',{{$color->size_id}})">Add to Cart</a>
               </div>
             </div>
             <div class="advance-info">
@@ -277,7 +268,6 @@
             <!--End wrap-products-->
           </div>
         </div>
-
       </div>
       <!--end row-->
 

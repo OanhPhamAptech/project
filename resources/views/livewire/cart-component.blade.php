@@ -11,11 +11,16 @@
       <div class=" main-content-area">
 
         <div class="wrap-iten-in-cart">
+          @if (Session::has('success_message'))
           <div class="alert alert-success">
-            <strong>Success</strong>
+            <strong>Success</strong> {{Session::get('success_message')}}
           </div>
+          @endif
+
+          @if (Cart::count() > 0)
           <h3 class="box-title">Products Name</h3>
           <ul class="products-cart">
+            @foreach (Cart::content() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
                 <figure><img src="" alt=""></figure>
@@ -24,7 +29,7 @@
                 <a class="link-to-product" href=""></a>
               </div>
               <div class=" price-field produtc-price">
-                <p class="price"></p>
+                <p class="price">{{$item-->Price}}</p>
               </div>
               <div class="quantity">
                 <div class="quantity-input">
@@ -43,8 +48,11 @@
                 </a>
               </div>
             </li>
+            @endforeach
           </ul>
+          @else
           <p>No item in Cart</p>
+          @endif
         </div>
 
         <div class="summary">

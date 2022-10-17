@@ -17,12 +17,13 @@ class DetailsComponent extends Component
   {
     $this->size_id = $size_id;
   }
-  // public function store($product_id, $product_mame, $product_price)
-  // {
-  //   Cart::add($product_id, $product_mame, 1, $product_price)->associate('App\Models\Product');
-  //   session()->flash('success_message', 'Item added in Cart');
-  //   return redirect()->route('product.cart');
-  // }
+
+  public function store($product_id, $size_product, $color_size)
+  {
+    Cart::add($product_id, $size_product, 1, $color_size)->associate('App\Models\Product');
+    session()->flash('success_message', 'Item added in Cart');
+    return redirect()->route('product.cart');
+  }
 
   public function render()
   {
