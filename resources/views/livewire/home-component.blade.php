@@ -136,7 +136,7 @@
                                 <h6>
                                     Price:
                                     <span>
-                                        $ {{ $productApple->Price }}
+                                         {{($productApple->Price) }}
                                     </span>
                                 </h6>
                             </div>
@@ -205,12 +205,12 @@
                             </div>
                             <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                                 <h6>
-                                    {{ $productXiaomi->ProductName }}
+                                    {{ $productXiaomi->ProductName }} 
                                 </h6>
                                 <h6>
                                     Price:
                                     <span>
-                                        $ {{ $productXiaomi->Price }}
+                                        {{number_format( $productXiaomi->Price) }} VNĐ
                                     </span>
                                 </h6>
                             </div>

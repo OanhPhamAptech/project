@@ -21,7 +21,7 @@
           <div class="card-body">
             <div class="detail-box">
               <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
-              <h6>Price:<span>${{$product->price}}</span></h6>
+              <h6>Price:<span>{{number_format($product->price)}} VNĐ</span></h6>
             </div>
             <div class="">
               <a href="#" class="btn btn-success add-to-card" wire:click.prevent="">Thêm vào giỏ hàng</a>

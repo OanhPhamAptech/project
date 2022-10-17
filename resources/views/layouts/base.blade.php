@@ -67,7 +67,7 @@
             <a class="nav-link" href="about.html"> About </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
           </li>
         </ul>
         <div class="user_option-box">
@@ -139,11 +139,11 @@
         </div>
       </div>
       <div class="col-md-6 col-lg-3 footer-col">
-        <div class="footer_contact">
+        <div class="footer_contact" >
           <h4>
             Reach at..
           </h4>
-          <div class="contact_link_box">
+          <div class="contact_link_box" id="contact">
             <a href="">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
