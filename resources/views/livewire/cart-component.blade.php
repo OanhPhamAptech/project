@@ -29,7 +29,7 @@
                 <a class="link-to-product" href=""></a>
               </div>
               <div class=" price-field produtc-price">
-                <p class="price">{{$item-->Price}}</p>
+                <p class="price"></p>
               </div>
               <div class="quantity">
                 <div class="quantity-input">
