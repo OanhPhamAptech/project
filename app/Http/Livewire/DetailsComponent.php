@@ -12,21 +12,37 @@ use Cart;
 class DetailsComponent extends Component
 {
   // public $id;
-
+  public $ColorID;
+  protected $rules = [
+    'ColorID' => 'required',
+  ];
   public function mount($size_id)
   {
     $this->size_id = $size_id;
   }
 
-  public function store($product_id, $size_id, $color_id)
+  public function store()
   {
-    $size = Size::where('product_id', $size_id)->select('SizeName');
-
-
-    Cart::add($product_id, 1, $size )->associate('App\Models\Product');
+    $size = Size::where('id', $this->size_id)->first();
+    $product = $size->product()->where('id', $size->product_id)->get();
+    $product = Product::find($size->product_id);
+    $color = color::find($this->ColorID);
+   
+    \Cart::add([
+      'id' => $this->ColorID,
+      'name' => $product->ProductName,
+      'price' => $size->Price,
+      'qty' => 1,
+      'options' => array(
+        'image' => $color->img()->get('URL'),
+        'size' => $size->SizeName,
+        'color' => $color->ColorName,
+      )
+    ]);
     session()->flash('success_message', 'Item added in Cart');
     return redirect()->route('product.cart');
   }
+
 
   public function render()
   {

@@ -43,18 +43,20 @@
               <div class="stock-info in-stock">
                 <p class="color">Color: <b></b></p>
                 <div class="color-input">
-                  <select name="color" id="color-option" class="form-select" aria-label="Default select example">
+                <select wire:model.lazy="ColorID" id="color-option" class="form-select" aria-label="Default select example">
+                    <option value="">Please select a Color</option>
                     @foreach ($colors as $color)
-                    <option value="{{$color->ColorName}}">{{$color->ColorName}}</option>
+                    <option value="{{$color->id}}" required>{{$color->ColorName}}</option>                    
                     @endforeach
+
                   </select>
                 </div>
               </div>
               <div class="quantity">
-                <span>Quantity: {{$color->Quantity}} </span>
+               
               </div>
               <div class="wrap-butons">
-                <a href="/cart" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{$size->product_id}}',{{$color->size_id}})">Add to Cart</a>
+                <a href="/cart" class="btn add-to-cart" wire:click.prevent="store">Add to Cart</a>
               </div>
             </div>
             <div class="advance-info">

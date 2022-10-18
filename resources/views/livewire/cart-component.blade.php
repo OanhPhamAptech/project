@@ -17,23 +17,25 @@
           </div>
           @endif
 
-          @if (Cart::count() > 0)
+          @if (Cart::Content()->count() > 0)
           <h3 class="box-title">Products Name</h3>
           <ul class="products-cart">
-            @foreach (Cart::content() as $item)
+            @foreach (Cart::Content() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="{{$item->model->Featured}}" alt=""></figure>
+                <figure><img src="{{$item->options->image}}" alt="img"></figure>
               </div>
               <div class="product-name">
-                <a class="link-to-product" href="">{{$item->model->ProductName}} {{$item->model->SizeName}}</a>
+                <a class="link-to-product" href="">{{$item->name}}</a>
+                <p>Color : {{$item->options->color}}</p>
+                <p>Size : {{$item->options->size}}</p>
+                <p>Color ID : {{$item->id}}</p>
               </div>
               <div class=" price-field produtc-price">
-                <p class="price"></p>
+                <p class="price">{{number_format($item->price)}}</p>
               </div>
               <div class="quantity">
                 <div class="quantity-input">
-                  {{$item->model->quantity}}
                   <input type="text" name="product-quatity" value="{{$item->qty}}" data-max="120" pattern="[0-9]*">
                   <a class="btn btn-increase" href="#"></a>
                   <a class="btn btn-reduce" href="#"></a>
@@ -43,7 +45,7 @@
                 <p class="price">${{$item->subtotal}}</p>
               </div>
               <div class="delete">
-                <a href="#" class="btn btn-delete" title="">
+                <a href="#" class="btn btn-delete" title=""wire:click.prevent="removeItem({{$item->rowId}})">
                   <span>Delete</span>
                   <i class="fa fa-times-circle" aria-hidden="true"></i>
                 </a>
@@ -55,6 +57,7 @@
           <p>No item in Cart</p>
           @endif
         </div>
+
 
         <div class="summary">
           <div class="row">
