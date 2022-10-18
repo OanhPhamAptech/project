@@ -23,23 +23,24 @@
             @foreach (Cart::content() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="" alt=""></figure>
+                <figure><img src="{{$item->model->Featured}}" alt=""></figure>
               </div>
               <div class="product-name">
-                <a class="link-to-product" href=""></a>
+                <a class="link-to-product" href="">{{$item->model->ProductName}} {{$item->model->SizeName}}</a>
               </div>
               <div class=" price-field produtc-price">
                 <p class="price"></p>
               </div>
               <div class="quantity">
                 <div class="quantity-input">
-                  <input type="text" name="product-quatity" value="" data-max="120" pattern="[0-9]*">
+                  {{$item->model->quantity}}
+                  <input type="text" name="product-quatity" value="{{$item->qty}}" data-max="120" pattern="[0-9]*">
                   <a class="btn btn-increase" href="#"></a>
                   <a class="btn btn-reduce" href="#"></a>
                 </div>
               </div>
               <div class="price-field sub-total">
-                <p class="price"></p>
+                <p class="price">${{$item->subtotal}}</p>
               </div>
               <div class="delete">
                 <a href="#" class="btn btn-delete" title="">

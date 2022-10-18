@@ -18,9 +18,12 @@ class DetailsComponent extends Component
     $this->size_id = $size_id;
   }
 
-  public function store($product_id, $size_product, $color_size)
+  public function store($product_id, $size_id, $color_id)
   {
-    Cart::add($product_id, $size_product, 1, $color_size)->associate('App\Models\Product');
+    $size = Size::where('product_id', $size_id)->select('SizeName');
+
+
+    Cart::add($product_id, 1, $size )->associate('App\Models\Product');
     session()->flash('success_message', 'Item added in Cart');
     return redirect()->route('product.cart');
   }
