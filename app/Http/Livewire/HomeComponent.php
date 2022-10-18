@@ -11,20 +11,13 @@ class HomeComponent extends Component
   {
     $productsApple = DB::table('product')
     ->join('size', 'product.id', '=', 'size.product_id')
-    ->join('category', 'product.category_id', '=', 'category.id')
-    ->select('product.*', 'size.Price')->where('category.id','=','1')->get();
-
+    ->select('product.ProductName', 'product.Featured', 'size.Price')->where('product.category_id','=','1')->take(10)->get();
     $productsSamsung = DB::table('product')
     ->join('size', 'product.id', '=', 'size.product_id')
-    ->join('category', 'product.category_id', '=', 'category.id')
-    ->select('product.*', 'size.Price')->where('category.id','=','2')->get();
-
+    ->select('product.ProductName', 'product.Featured', 'size.Price')->where('product.category_id','=','2')->take(10)->get();
     $productsXiaomi = DB::table('product')
     ->join('size', 'product.id', '=', 'size.product_id')
-    ->join('category', 'product.category_id', '=', 'category.id')
-    ->select('product.*', 'size.Price')->where('category.id','=','3')->select('*');
-    $productsXiaomi = $productsXiaomi->get();
-
+    ->select('product.ProductName', 'product.Featured', 'size.Price')->where('product.category_id','=','3')->take(10)->get();
     return view('livewire.home-component', compact('productsApple','productsSamsung','productsXiaomi'))->layout('layouts.base');
   }
 }

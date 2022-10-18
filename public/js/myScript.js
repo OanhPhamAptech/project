@@ -84,5 +84,36 @@ $(document).ready(function () {
             $('#quantity').val(quantity - 1);
         }
     });
+});
 
+$(".featured-carousel").owlCarousel({
+    navText: [],
+    navText: [
+        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ],
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true,
+            dots: false
+        },
+        576:{
+            items:2,
+            nav:true,
+            dots: false
+        },
+        768:{
+            items:3,
+            nav:true,
+            dots: false
+        },
+        992:{
+            items:4,
+            nav:true,
+            dots: false
+        }
+    }
 });

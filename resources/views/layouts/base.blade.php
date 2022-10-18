@@ -35,8 +35,9 @@
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!--My css-->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/myStyle.css">
-
   <script src="https://kit.fontawesome.com/8e47a4543e.js" crossorigin="anonymous"></script>
   @livewireStyles()
 </head>
@@ -207,6 +208,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
 </script>
 <!-- custom js -->
+<script src="js/jquery-3.4.1.min.js"></script>
 <script src="{{ url('assets/js/custom.js')}}"></script>
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
@@ -223,6 +225,7 @@
 <script src="{{ url('assets/js/jquery.countdown.min.js')}}"></script>
 <script src="{{ url('assets/js/jquery.sticky.js')}}"></script>
 <script src="{{ url('assets/js/functions.js')}}"></script>
+<script src="js/myScript.js"></script>
 @livewireScripts()
 </body>
 

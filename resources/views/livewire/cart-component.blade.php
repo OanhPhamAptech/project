@@ -23,26 +23,23 @@
             @foreach (Cart::getContent() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="{{$item['attributes']['image']}}" alt="img"></figure>
+                <figure><img src="" alt=""></figure>
               </div>
               <div class="product-name">
-                <a class="link-to-product" href="">{{$item->name}}</a>
-                <p>Size : {{$item['attributes']['size']}}</p>
-                <p>Color : {{$item['attributes']['color']}}</p>
-                <p>ID : {{$item->id}}</p>
+                <a class="link-to-product" href="">{{$item->ProductName}}</a>
               </div>
               <div class=" price-field produtc-price">
                 <p class="price">{{number_format($item->price)}}</p>
               </div>
               <div class="quantity">
                 <div class="quantity-input">
-                  <input type="text" name="product-quatity" value="{{$item->quantity}}" data-max="120" pattern="[0-9]*">
+                  <input type="text" name="product-quatity" value="" data-max="120" pattern="[0-9]*">
                   <a class="btn btn-increase" href="#"></a>
                   <a class="btn btn-reduce" href="#"></a>
                 </div>
               </div>
               <div class="price-field sub-total">
-                <p class="price"></p>
+                <p class="price">${{$item->subtotal}}</p>
               </div>
               <div class="delete">
                 <a href="#" class="btn btn-delete" title=""wire:click.prevent="removeCart({{$item->id}})">
@@ -73,7 +70,7 @@
                 <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
               </label>
               <a class="btn btn-checkout" href="checkout.html">Check out</a>
-              <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+              <a class="link-to-shop" href="/shop">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-12 col-md-3 update-clear">
               <a class="btn btn-clear" href="#">Clear Shopping Cart</a>

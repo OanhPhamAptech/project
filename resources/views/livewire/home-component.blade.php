@@ -115,121 +115,113 @@
   <!-- shop section -->
 
   <section class="shop_section layout_padding">
-        <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Apple
-                </h2>
-            </div>
-            <div class="row">
-                @foreach($productsApple as $productApple)
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <div class="box shadow productBox">
-                        <a href="">
-                            <div class="img-box">
-                                <img src="{{ $productApple->Featured }}" alt="">
-                            </div>
-                            <div class="detail-box d-flex flex-column justify-content-center align-items-center">
-                                <h6>
-                                    {{ $productApple->ProductName }}
-                                </h6>
-                                <h6>
-                                    Price:
-                                    <span>
-                                        $ {{ $productApple->Price }}
-                                    </span>
-                                </h6>
-                            </div>
-                            <div class="new">
-                                <span>
-                                    New
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center align-items-center mt-5"><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+    <div class="container p-0">
+      <div class="row">
+        <div class="heading_container heading_center">
+          <h2>
+          Apple
+          </h2>
         </div>
-        <div class="container mt-5">
-            <div class="heading_container heading_center">
-                <h2>
-                Samsung
-                </h2>
-            </div>
-            <div class="row">
-                @foreach($productsSamsung as $productSamsung)
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <div class="box shadow productBox">
-                        <a href="">
-                            <div class="img-box">
-                                <img src="{{ $productSamsung->Featured }}" alt="">
-                            </div>
-                            <div class="detail-box d-flex flex-column justify-content-center align-items-center">
-                                <h6>
-                                    {{ $productSamsung->ProductName }}
-                                </h6>
-                                <h6>
-                                    Price:
-                                    <span>
-                                        $ {{ $productSamsung->Price }}
-                                    </span>
-                                </h6>
-                            </div>
-                            <div class="new">
-                                <span>
-                                    New
-                                </span>
-                            </div>
-                        </a>
-                    </div>
+        <div class="owl-carousel owl-theme featured-carousel">
+          @foreach($productsApple as $productApple)
+            <div class="mx-3 my-3 box shadow productBox item">
+              <a href="">
+                <img src="{{ $productApple->Featured }}" alt="" class="img-fluid">
+                <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                  <h6 class="fs-6 mt-3">
+                    {{ $productApple->ProductName }}
+                  </h6>
+                  <h6>
+                    Price:
+                    <span>
+                      $ {{ $productApple->Price }}
+                    </span>
+                  </h6>
                 </div>
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center align-items-center mt-5 "><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
-        </div>
-        <div class="container mt-5">
-            <div class="heading_container heading_center">
-                <h2>
-                Xiaomi
-                </h2>
-            </div>
-            <div class="row">
-                @foreach($productsXiaomi as $productXiaomi)
-                <div class="col-sm-6 col-md-4 col-xl-3">
-                    <div class="box shadow productBox">
-                        <a href="">
-                            <div class="img-box">
-                                <img src="{{ $productXiaomi->Featured }}" alt="">
-                            </div>
-                            <div class="detail-box d-flex flex-column justify-content-center align-items-center">
-                                <h6>
-                                    {{ $productXiaomi->ProductName }}
-                                </h6>
-                                <h6>
-                                    Price:
-                                    <span>
-                                        $ {{ $productXiaomi->Price }}
-                                    </span>
-                                </h6>
-                            </div>
-                            <div class="new">
-                                <span>
-                                    New
-                                </span>
-                            </div>
-                        </a>
-                    </div>
+                <div class="new">
+                  <span>
+                    New
+                  </span>
                 </div>
-                @endforeach
+              </a>
             </div>
-            <div class="d-flex justify-content-center align-items-center mt-5 "><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+          @endforeach
         </div>
-    </section>
-
+      </div>
+      <div class="d-flex justify-content-center align-items-center"><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+    </div>
+    <div class="container mt-5 p-0">
+      <div class="row">
+        <div class="heading_container heading_center">
+          <h2>
+            Samsung
+          </h2>
+        </div>
+        <div class="owl-carousel owl-theme featured-carousel">
+          @foreach($productsSamsung as $productSamsung)
+            <div class="mx-3 my-3 box shadow productBox item">
+              <a href="">
+                <img src="{{ $productSamsung->Featured }}" alt="" class="img-fluid">
+                <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                  <h6 class="fs-6 mt-3">
+                    {{ $productSamsung->ProductName }}
+                  </h6>
+                  <h6>
+                    Price:
+                    <span>
+                      $ {{ $productSamsung->Price }}
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    New
+                  </span>
+                </div>
+              </a>
+            </div>
+          @endforeach
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center"><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+    </div>
+    <div class="container mt-5 p-0">
+      <div class="row">
+        <div class="heading_container heading_center">
+          <h2>
+            Xiaomi
+          </h2>
+        </div>
+        <div class="owl-carousel owl-theme featured-carousel">
+          @foreach($productsXiaomi as $productXiaomi)
+            <div class="mx-3 my-3 box shadow productBox item">
+              <a href="">
+                <img src="{{ $productXiaomi->Featured }}" alt="" class="img-fluid">
+                <div class="detail-box d-flex flex-column justify-content-center align-items-center">
+                  <h6 class="fs-6 mt-3">
+                    {{ $productXiaomi->ProductName }}
+                  </h6>
+                  <h6>
+                    Price:
+                    <span>
+                      $ {{ $productXiaomi->Price }}
+                    </span>
+                  </h6>
+                </div>
+                <div class="new">
+                  <span>
+                    New
+                  </span>
+                </div>
+              </a>
+            </div>
+          @endforeach
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center"><a href="#" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+    </div>
+  </section>
   <!-- end shop section -->
-
   <!-- about section -->
 
   <section class="about_section layout_padding">
