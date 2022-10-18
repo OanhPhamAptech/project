@@ -26,7 +26,7 @@
                     <span>NOTICE HERE</span>
                 </div>
                 <div class="formLeft p-3 mt-2 box shadow">
-                    <p class="fs-5" style="font-weight: 600;">Order detail</p>
+                    <p class="fs-5" style="font-weight: 600;">Your information</p>
                     <input type="radio" name="sex" id="rdoMale">
                     <label for="lblMale">Male</label>
                     <input type="radio" name="sex" id="rdoFemale" class="ms-2">
