@@ -30,8 +30,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="#" class="count-review">(05 review)</a>
               </div>
-              <h2 class="product-name" > Name: {{$product->ProductName}} </h2>
-       
+              <h2 class="product-name"> Name: {{$product->ProductName}} </h2>
               <div class="short-desc">
 
               </div>
@@ -39,24 +38,21 @@
                 <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
               </div>
               <div class="wrap-price">
-              <p>Size : {{$size->SizeName}}</p>
                 <span class="product-price">Price: {{number_format($size->Price)}} VNĐ </span>
               </div>
               <div class="stock-info in-stock">
                 <p class="color">Color: <b></b></p>
                 <div class="color-input">
-                  <select wire:model.lazy="ColorID" id="color-option" class="form-select" aria-label="Default select example">
-                    <option value="">Please select a Color</option>
+                  <select name="color" id="color-option" class="form-select" aria-label="Default select example">
                     @foreach ($colors as $color)
-                    <option value="{{$color->id}}" required>{{$color->ColorName}}</option>
-                    
+                    <option value="{{$color->ColorName}}">{{$color->ColorName}}</option>
                     @endforeach
-
                   </select>
-                 
                 </div>
               </div>
-
+              <div class="quantity">
+                <span>Quantity: {{$color->Quantity}} </span>
+              </div>
               <div class="wrap-butons">
                 <a href="/cart" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{$size->product_id}}',{{$color->size_id}})">Add to Cart</a>
               </div>
