@@ -1,4 +1,18 @@
 <div>
+    <div class="hero_social">
+        <a href="">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+    </div>
     <!--payment section-->
     <div class="container mt-2 mb-5">
         <a href="" class="text-black d-flex justify-content-start align-items-center gap-2"><i class="fa fa-chevron-left text-black"></i><span>Choose more</span></a>
