@@ -31,6 +31,7 @@
                 <a href="#" class="count-review">(05 review)</a>
               </div>
               <h2 class="product-name"> Name: {{$product->ProductName}} </h2>
+              <p>Size : {{$size->SizeName}}</p>
               <div class="short-desc">
 
               </div>
@@ -42,6 +43,7 @@
               </div>
               <div class="stock-info in-stock">
                 <p class="color">Color: <b></b></p>
+
                 <div class="color-input">
                 <select wire:model.lazy="ColorID" id="color-option" class="form-select" aria-label="Default select example">
                     <option value="">Please select a Color</option>
