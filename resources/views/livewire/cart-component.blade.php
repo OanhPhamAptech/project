@@ -17,23 +17,26 @@
           </div>
           @endif
 
-          @if (Cart::count() > 0)
+          @if (Cart::getContent()->count() > 0)
           <h3 class="box-title">Products Name</h3>
           <ul class="products-cart">
-            @foreach (Cart::content() as $item)
+            @foreach (Cart::getContent() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="" alt=""></figure>
+                <figure><img src="{{$item['attributes']['image']}}" alt="img"></figure>
               </div>
               <div class="product-name">
-                <a class="link-to-product" href=""></a>
+                <a class="link-to-product" href="">{{$item->name}}</a>
+                <p>Size : {{$item['attributes']['size']}}</p>
+                <p>Color : {{$item['attributes']['color']}}</p>
+                <p>ID : {{$item->id}}</p>
               </div>
               <div class=" price-field produtc-price">
-                <p class="price"></p>
+                <p class="price">{{number_format($item->price)}}</p>
               </div>
               <div class="quantity">
                 <div class="quantity-input">
-                  <input type="text" name="product-quatity" value="" data-max="120" pattern="[0-9]*">
+                  <input type="text" name="product-quatity" value="{{$item->quantity}}" data-max="120" pattern="[0-9]*">
                   <a class="btn btn-increase" href="#"></a>
                   <a class="btn btn-reduce" href="#"></a>
                 </div>
@@ -42,7 +45,7 @@
                 <p class="price"></p>
               </div>
               <div class="delete">
-                <a href="#" class="btn btn-delete" title="">
+                <a href="#" class="btn btn-delete" title=""wire:click.prevent="removeCart({{$item->id}})">
                   <span>Delete</span>
                   <i class="fa fa-times-circle" aria-hidden="true"></i>
                 </a>
