@@ -50,6 +50,7 @@
                   <i class="fa fa-times-circle" aria-hidden="true"></i>
                 </a>
               </div>
+             
             </li>
             @endforeach
           </ul>
@@ -77,7 +78,7 @@
               <a class="link-to-shop" href="/shop">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-12 col-md-3 update-clear">
-              <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
+              <a class="btn btn-clear" href="#" wire:click.prevent=" removeCart">Clear Shopping Cart</a>
               <a class="btn btn-update" href="#">Update Shopping Cart</a>
             </div>
           </div>
