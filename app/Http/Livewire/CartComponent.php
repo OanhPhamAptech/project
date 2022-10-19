@@ -8,6 +8,7 @@ use Cart;
 class CartComponent extends Component
 {
   // remove item
+  public $CartItems = [];
   public function removeItem($id)
   {
 
@@ -22,10 +23,11 @@ class CartComponent extends Component
   }
 
   // increase Quantity
-  public function increaseQuantity($rowId) {
+  public function increaseQuantity($rowId)
+  {
     $product = Cart::get($rowId);
     $qty = $product->qty + 1;
-    Cart::update($rowId,$qty);
+    Cart::update($rowId, $qty);
   }
 
   // decrease Quantity
@@ -35,7 +37,12 @@ class CartComponent extends Component
     $qty = $product->qty - 1;
     Cart::update($rowId, $qty);
   }
-
+  public function checkout($CartItems)
+  {
+    $CartItems = \Cart::Content();
+    $this->CartItems = $CartItems;
+    $this->emit('checkout');
+  }
   public function render()
   {
 

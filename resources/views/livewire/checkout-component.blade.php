@@ -69,16 +69,21 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
+                                 @foreach (Cart::Content() as $item)
                                 <div class="d-flex justify-content-center align-items-center gap-3 pb-2">
-                                    <img src="" alt="" width="100px" height="100px">
+                                   
+                                    <img src="{{$item->options->image}}" alt="" width="100px" height="100px">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <p class="fs-5">Your item</p>
+
+                                        <p class="fs-5">{{$item->name}} {{$item->options->size}} {{$item->options->color}} </p>
                                         <div class="d-flex">
-                                            <span>Amount</span>
-                                            <span>x</span>
-                                            <span>Price</span>
+                                            <span>Quantity : {{$item->qty}}</span>
+                                            <span>Price : ${{$item->subtotal}}</span>
+
+                                            <span></span>
                                         </div>
                                     </div>
+                                  
                                     <a href="">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
@@ -96,30 +101,36 @@
                                         </svg>
                                     </a>
                                 </div>
+                                @endforeach
                                 <hr>
                                 <div class="d-flex justify-content-center align-items-center gap-2 py-2">
-                                    <span>Provisional:</span>
-                                    <span>$</span>
+                                    <span>Total : ${{Cart::subtotal()}}</span>
+                                    <span></span>
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-center align-items-center gap-2 pt-2">
-                                    <button type="button" class="btn btn-primary" style="width:150px">View
-                                        cart</button>
+                                    <a type="button" class="btn btn-primary" style="width:150px" href="/cart">View
+                                        cart</a>
                                     <button type="button" class="btn btn-primary" style="width:150px">Buy
                                         now</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @foreach (Cart::Content() as $item)
                     <div style="font-weight: 600;" class="fs-6">
-                        <span>Your product</span>
+
+                        <span>{{$item->name}} </span>
                         -
-                        <span>Size</span>
+                        <span>Size : {{$item->options->size}}</span>
                         -
-                        <span>Color</span>
+                        <span>Color : {{$item->options->color}}</span>
                         -
-                        <span>Amount</span>
+                        <span>Amount : ${{$item->subtotal}} </span>
+
                     </div>
+                    @endforeach
+                    <p>Total : ${{Cart::subtotal()}}</p>
                     <div class="mt-2">
                         <label for="lblDelivery" class="fs-5 mt-2" style="font-weight: 600;">Delivery</label><br>
                         <input type="radio" name="rdoDelivery"><span class="ms-2">At store</span><br>
