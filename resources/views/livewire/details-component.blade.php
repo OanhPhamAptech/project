@@ -9,6 +9,11 @@
           <li class="item-link"><span>Cart</span></li>
         </ul>
       </div>
+      @if(session()->has('success'))
+      <div class="alert alert-success">
+        {{ session()->get('success') }}
+      </div>
+      @endif
       <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
           <div class="wrap-product-detail">
@@ -45,17 +50,17 @@
                 <p class="color">Color: <b></b></p>
 
                 <div class="color-input">
-                <select wire:model.lazy="ColorID" id="color-option" class="form-select" aria-label="Default select example">
+                  <select wire:model.lazy="ColorID" id="color-option" class="form-select" aria-label="Default select example">
                     <option value="">Please select a Color</option>
                     @foreach ($colors as $color)
-                    <option value="{{$color->id}}" required>{{$color->ColorName}}</option>                    
+                    <option value="{{$color->id}}" required>{{$color->ColorName}}</option>
                     @endforeach
 
                   </select>
                 </div>
               </div>
               <div class="quantity">
-               
+
               </div>
               <div class="wrap-butons">
                 <a href="/cart" class="btn add-to-cart" wire:click.prevent="store">Add to Cart</a>

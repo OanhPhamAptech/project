@@ -23,24 +23,28 @@ class DetailsComponent extends Component
 
   public function store()
   {
-    $size = Size::where('id', $this->size_id)->first();
-    $product = $size->product()->where('id', $size->product_id)->get();
-    $product = Product::find($size->product_id);
-    $color = color::find($this->ColorID);
+    if ($this->ColorID == null) {
+      return redirect()->route('product.details', $this->size_id)->with('success', 'Please select color');
+    } {
+      $size = Size::where('id', $this->size_id)->first();
+      $product = $size->product()->where('id', $size->product_id)->get();
+      $product = Product::find($size->product_id);
+      $color = color::find($this->ColorID);
 
-    \Cart::add([
-      'id' => $this->ColorID,
-      'name' => $product->ProductName,
-      'price' => $size->Price,
-      'qty' => 1,
-      'options' => array(
-        'image' => $product->Featured,
-        'size' => $size->SizeName,
-        'color' => $color->ColorName,
-        'idProduct' => $product->id,
-      )
-    ]);
-    session()->flash('success_message', 'Item added in Cart');
+      \Cart::add([
+        'id' => $this->ColorID,
+        'name' => $product->ProductName,
+        'price' => $size->Price,
+        'qty' => 1,
+        'options' => array(
+          'image' => $product->Featured,
+          'size' => $size->SizeName,
+          'color' => $color->ColorName,
+          'idProduct' => $product->id,
+        )
+      ]);
+      session()->flash('success_message', 'Item added in Cart');
+    }
     return redirect()->route('product.cart');
   }
 
