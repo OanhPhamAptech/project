@@ -34,7 +34,7 @@ class DetailsComponent extends Component
       'price' => $size->Price,
       'qty' => 1,
       'options' => array(
-        'image' => $color->img()->get('URL'),
+        'image' => $product->Featured,
         'size' => $size->SizeName,
         'color' => $color->ColorName,
       )
