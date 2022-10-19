@@ -23,13 +23,14 @@
             @foreach (Cart::Content() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="{{$item->options->image}}" alt="img"></figure>
+                <figure><img src="//{{$item->options->image}}" alt="img"></figure>
               </div>
               <div class="product-name">
                 <a class="link-to-product" href="">{{$item->name}}</a>
                 <p>Color : {{$item->options->color}}</p>
                 <p>Size : {{$item->options->size}}</p>
                 <p>Color ID : {{$item->id}}</p>
+                <p> {{$item->options->image}}</p>
               </div>
               <div class=" price-field produtc-price">
                 <p class="price">{{number_format($item->price)}}</p>
