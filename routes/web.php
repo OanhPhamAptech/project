@@ -9,6 +9,7 @@ use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/shop/product_{size_id}', DetailsComponent::class)->name('product.de
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::delete('/cart/{id}', CartComponent::class)->name('product.cart.delete');
 Route::get('/checkout', CheckoutComponent::class);
+Route::get('/search', SearchComponent::class)->name('product.search');
 
 
 Route::get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'])->middleware('CheckLogin')->name('showproduct');

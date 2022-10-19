@@ -72,12 +72,7 @@
           </li>
         </ul>
         <div class="user_option-box">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <a href="" class="d-flex align-items-center">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </a>
-          </form>
+          @livewire('header-search-component')
           <a href="/checkout">
             <i class="fa fa-user" aria-hidden="true"></i>
           </a>

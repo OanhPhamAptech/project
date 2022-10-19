@@ -19,13 +19,6 @@ class ShopComponent extends Component
     $this->pagesize = 12;
   }
 
-  public function store($product_id, $ProductName, $Price, $ColorName)
-  {
-    Cart::add($product_id, $ProductName, 1, $Price, $ColorName)->associate('App\Models\Product');
-    session()->flash('success_message', 'Item added in Cart');
-    return redirect()->route('product.cart');
-  }
-
   use WithPagination;
   public function render()
   {
