@@ -27,7 +27,7 @@ class DetailsComponent extends Component
     $product = $size->product()->where('id', $size->product_id)->get();
     $product = Product::find($size->product_id);
     $color = color::find($this->ColorID);
-   
+
     \Cart::add([
       'id' => $this->ColorID,
       'name' => $product->ProductName,
@@ -53,12 +53,12 @@ class DetailsComponent extends Component
 
     $colors = Size::find($this->size_id)->color;
     foreach ($colors as $color) {
-     $color->img()->get('URL');
+      $color->img()->get('URL');
     }
 
     // $popular_products = Product::inRandomOrder()->limit(5)->get();
     // $related_products = Product::where('category_id', $product->categpryid)->inRandomOrder()->limit(5)->get();
-    
+
     return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors])->layout('layouts.base');
   }
 }

@@ -50,7 +50,7 @@
                   <i class="fa fa-times-circle" aria-hidden="true"></i>
                 </a>
               </div>
-             
+
             </li>
             @endforeach
           </ul>
