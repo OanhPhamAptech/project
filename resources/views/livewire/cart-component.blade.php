@@ -45,7 +45,7 @@
                 <p class="price">${{$item->subtotal}}</p>
               </div>
               <div class="delete">
-                <a href="#" class="btn btn-delete" title=""wire:click.prevent="removeItem({{$item->rowId}})">
+                <a href="#" class="btn btn-delete" title="" wire:click.prevent="removeItem('{{$item->rowId}}')">
                   <span>Delete</span>
                   <i class="fa fa-times-circle" aria-hidden="true"></i>
                 </a>
