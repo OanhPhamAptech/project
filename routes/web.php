@@ -4,6 +4,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admincontroller;
+use App\Http\Controllers\CategoryController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -32,6 +33,7 @@ Route::get('/shop/product_{size_id}', DetailsComponent::class)->name('product.de
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/searchProduct', SearchComponent::class)->name('product.search');
+Route::get('/category_{cat_id}', CategoryComponent::class)->name('product.category');
 
 
 Route::get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'])->middleware('CheckLogin')->name('showproduct');
