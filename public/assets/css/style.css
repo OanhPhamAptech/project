@@ -1477,18 +1477,10 @@ a:focus {
   font-size: 14px;
   color: #666666;
 }
-.sitebar .widget-product .product-widget-style {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 32px;
-}
 .sitebar .widget-product a {
   color: #444444;
   font-size: 14px;
-  line-height: 40px;
-  max-width: 80px;
-  max-height: 160px;
+  line-height: 24px;
 }
 .sitebar .widget-product a figure {
   max-width: 100%;

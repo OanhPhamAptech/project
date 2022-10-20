@@ -30,9 +30,8 @@ Route::get('/index', HomeComponent::class);
 Route::get('/shop', ShopComponent::class);
 Route::get('/shop/product_{size_id}', DetailsComponent::class)->name('product.details');
 Route::get('/cart', CartComponent::class)->name('product.cart');
-Route::delete('/cart/{id}', CartComponent::class)->name('product.cart.delete');
 Route::get('/checkout', CheckoutComponent::class);
-Route::get('/search', SearchComponent::class)->name('product.search');
+Route::get('/searchProduct', SearchComponent::class)->name('product.search');
 
 
 Route::get('/admin', [App\Http\Controllers\admincontroller::class, 'showproduct'])->middleware('CheckLogin')->name('showproduct');

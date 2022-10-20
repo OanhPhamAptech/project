@@ -1,12 +1,12 @@
 <div>
-  <h1>Product Detail</h1>
   <!--main area-->
   <main id="main" class="main-site">
     <div class="container">
       <div class="wrap-breadcrumb">
         <ul>
           <li class="item-link"><a href="/" class="link">home</a></li>
-          <li class="item-link"><span>Cart</span></li>
+          <li class="item-link"><a href="/shop" class="link">Product</a></li>
+          <li class="item-link"><span>{{$product->ProductName}} {{$size->SizeName}}</span></li>
         </ul>
       </div>
       @if(session()->has('success'))
@@ -16,7 +16,7 @@
       @endif
       <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
-          <div class="wrap-product-detail">
+          <div class="row wrap-product-detail">
             <div class="detail-media">
               <div class="product-gallery">
                 <ul class="slides">
@@ -35,16 +35,12 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="#" class="count-review">(05 review)</a>
               </div>
-              <h2 class="product-name"> Name: {{$product->ProductName}} </h2>
-              <p>Size : {{$size->SizeName}}</p>
-              <div class="short-desc">
-
-              </div>
+              <h2 class="product-name"> Name: {{$product->ProductName}} {{$size->SizeName}}</h2>
               <div class="wrap-social">
                 <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
               </div>
               <div class="wrap-price">
-                <span class="product-price">Price: {{number_format($size->Price)}} VNĐ </span>
+                <span class="product-price">Price: ${{number_format($size->Price)}} </span>
               </div>
               <div class="stock-info in-stock">
                 <p class="color">Color: <b></b></p>
@@ -69,8 +65,8 @@
             <div class="advance-info">
               <div class="tab-control normal">
                 <a href="#description" class="tab-control-item active">description</a>
-                <a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
-                <a href="#review" class="tab-control-item">Reviews</a>
+                <!-- <a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
+                <a href="#review" class="tab-control-item">Reviews</a> -->
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
@@ -221,21 +217,21 @@
             <h2 class="widget-title">Popular Products</h2>
             <div class="widget-content">
               <ul class="products">
-
+                @foreach ($popular_products as $p_product)
                 <li class="product-item">
-                  <div class="product product-widget-style">
-                    <div class="thumbnnail">
-                      <a href="" title=" ">
-                        <figure><img src="" alt=" "></figure>
+                  <div class="row product product-widget-style">
+                    <div class="col-12 col-md-4 thumbnnail">
+                      <a href="{{route('product.details',['size_id' => $p_product->id])}}" title=" ">
+                        <figure><img src="{{asset($p_product->Featured)}}" alt="{{$p_product->ProductName}}"></figure>
                       </a>
                     </div>
-                    <div class="product-info">
-                      <a href="" title=" " class="product-name"><span> </span></a>
-                      <div class="wrap-price"><span class="product-price"></span></div>
+                    <div class="col-12 col-md-8 product-info">
+                      <a href="{{route('product.details',['size_id' => $p_product->id])}}" title=" {{$p_product->ProductName}}" class="product-name">{{$p_product->ProductName}}</a>
+                      <p class="product-price">${{$p_product->Price}}</p>
                     </div>
                   </div>
                 </li>
-
+                @endforeach
 
               </ul>
             </div>

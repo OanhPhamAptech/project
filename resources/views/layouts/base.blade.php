@@ -72,10 +72,19 @@
           </li>
         </ul>
         <div class="user_option-box">
-          @livewire('header-search-component')
+          <!-- search -->
+          <form action="{{route('product.search')}}" wire:submit.prevent="searchProduct" type="GET" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" name="search" wire:model.defer="search" placeholder="Search" aria-label="Search">
+            <a href="" class="d-flex align-items-center">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+          </form>
+
           <a href="/checkout">
             <i class="fa fa-user" aria-hidden="true"></i>
           </a>
+
+          <!-- Cart -->
           <a href="/cart">
             <i class="fa fa-cart-plus" aria-hidden="true"></i>
           </a>
@@ -135,7 +144,7 @@
         </div>
       </div>
       <div class="col-md-6 col-lg-3 footer-col">
-        <div class="footer_contact" >
+        <div class="footer_contact">
           <h4>
             Reach at..
           </h4>

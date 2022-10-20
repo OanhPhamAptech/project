@@ -2,31 +2,29 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Livewire\WithPagination;
 use App\Models\Product;
-use Cart;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class SearchComponent extends Component
 {
-  public $sorting;
-  public $pagesize;
+  public $product;
   public $search;
-  public $product_cat;
+  public $error = '';
 
-  public function mount()
+  public function searchProduct()
   {
-    $this->sorting = "default";
-    $this->pagesize = 12;
-    $this->fill(request()->only('search', '$product_cat'));
+    try {
+      $this->product = Product::where('ProductName', 'like', '%'.$this->search .'%')->first();
+      $this->reset(['error']);
+    } catch (ModelNotFoundException $e) {
+      $this->error = 'Product not found.';
+    }
+    return redirect()->route('product.search');
   }
 
-  use WithPagination;
   public function render()
   {
-    $product = Product::where('ProductName', 'like', '%' . $this->search . '%');
-
-    return view('livewire.search-component', ['product' => $product])->layout("layouts.base");
+    return view('livewire.search-component')->layout("layouts.base");
   }
 }

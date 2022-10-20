@@ -57,6 +57,10 @@ class DetailsComponent extends Component
     $product = Product::find($size->product_id);
 
     $colors = Size::find($this->size_id)->color;
+
+    $popular_products = DB::table('product')->join('size','size.product_id','=','product.id')->select();
+    $popular_products = $popular_products->inRandomOrder()->limit(5)->get();
+
     foreach ($colors as $color) {
       $color->img()->get('URL');
     }
@@ -64,6 +68,6 @@ class DetailsComponent extends Component
     // $popular_products = Product::inRandomOrder()->limit(5)->get();
     // $related_products = Product::where('category_id', $product->categpryid)->inRandomOrder()->limit(5)->get();
 
-    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors])->layout('layouts.base');
+    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' =>$colors, 'popular_products' => $popular_products])->layout('layouts.base');
   }
 }
