@@ -8,6 +8,7 @@ $textCol: #1f1f1f;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 @import "cart";
+@import "detail";
 
 @mixin main-font {
   font-family: "Poppins", sans-serif;

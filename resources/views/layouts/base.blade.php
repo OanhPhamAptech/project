@@ -193,8 +193,7 @@
     </div>
     <div class="footer-info">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="">Free Html Templates</a>
+        &copy; <span id="displayYear"></span> C2202 Aptech</a>
       </p>
     </div>
   </div>

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Size;
 use App\Models\Color;
+use App\Models\Category;
 use Livewire\Component;
 use Cart;
 
@@ -16,6 +17,7 @@ class DetailsComponent extends Component
   protected $rules = [
     'ColorID' => 'required',
   ];
+
   public function mount($size_id)
   {
     $this->size_id = $size_id;
@@ -58,16 +60,22 @@ class DetailsComponent extends Component
 
     $colors = Size::find($this->size_id)->color;
 
-    $popular_products = DB::table('product')->join('size','size.product_id','=','product.id')->select();
+    // popular products
+    $popular_products = DB::table('product')->join('size', 'size.product_id', '=', 'product.id')->select();
     $popular_products = $popular_products->inRandomOrder()->limit(5)->get();
+
+    // related product
+    $related = DB::table('product')
+      ->join('size', 'size.product_id', '=', 'product.id')
+      ->join('category', 'category.id', '=', 'product.category_id')
+      ->where('category.id', $product->category_id)
+      ->select('product.ProductName', 'product.Featured','Size.id','Size.SizeName','Size.Price');
+    $related = $related->inRandomOrder()->limit(10)->get();
 
     foreach ($colors as $color) {
       $color->img()->get('URL');
     }
 
-    // $popular_products = Product::inRandomOrder()->limit(5)->get();
-    // $related_products = Product::where('category_id', $product->categpryid)->inRandomOrder()->limit(5)->get();
-
-    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' =>$colors, 'popular_products' => $popular_products])->layout('layouts.base');
+    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related])->layout('layouts.base');
   }
 }

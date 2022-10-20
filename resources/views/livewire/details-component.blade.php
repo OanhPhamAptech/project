@@ -65,33 +65,11 @@
             <div class="advance-info">
               <div class="tab-control normal">
                 <a href="#description" class="tab-control-item active">description</a>
-                <!-- <a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
-                <a href="#review" class="tab-control-item">Reviews</a> -->
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
                   {{$product->ProductDescription}}
                 </div>
-                <!-- <div class="tab-content-item " id="add_infomation">
-                  <table class="shop_attributes">
-                    <tbody>
-                      <tr>
-                        <th>Weight</th>
-                        <td class="product_weight">1 kg</td>
-                      </tr>
-                      <tr>
-                        <th>Dimensions</th>
-                        <td class="product_dimensions">12 x 15 x 23 cm</td>
-                      </tr>
-                      <tr>
-                        <th>Color</th>
-                        <td>
-                          <p>Black, Blue, Grey, Violet, Yellow</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div> -->
                 <div class="tab-content-item" id="review">
                   <div class="wrap-review-form">
                     <div id="comments">
@@ -221,7 +199,7 @@
                 <li class="product-item">
                   <div class="row product product-widget-style">
                     <div class="col-12 col-md-4 thumbnnail">
-                      <a href="{{route('product.details',['size_id' => $p_product->id])}}" title=" ">
+                      <a href="{{route('product.details',['size_id' => $p_product->id])}}" title="{{$p_product->ProductName}}">
                         <figure><img src="{{asset($p_product->Featured)}}" alt="{{$p_product->ProductName}}"></figure>
                       </a>
                     </div>
@@ -232,7 +210,6 @@
                   </div>
                 </li>
                 @endforeach
-
               </ul>
             </div>
           </div>
@@ -246,27 +223,22 @@
             <div class="wrap-products">
               <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}'>
 
+                @foreach ($related as $r_product)
                 <div class="product product-style-2 equal-elem ">
                   <div class="product-thumnail">
-                    <a href="" title="">
-                      <figure><img src="" width="214" height="214" alt=""></figure>
+                    <a href="{{route('product.details',['size_id' => $r_product->id])}}" title="{{$r_product->ProductName}}">
+                      <figure><img src="{{asset($r_product->Featured)}}" width="214" height="214" alt="{{$r_product->ProductName}}"></figure>
                     </a>
-                    <div class="group-flash">
-                      <span class="flash-item new-label">new</span>
-                    </div>
-                    <div class="wrap-btn">
-                      <a href="" class="function-link">quick view</a>
-                    </div>
+                    <!-- <div class="group-flash">
+                      <span class="flash-item new-label">{{$r_product->id}}</span>
+                    </div> -->
                   </div>
                   <div class="product-info">
-                    <a href="#" class="product-name">
-                      <span< /span>
-                    </a>
-                    <div class=" wrap-price"><span class="product-price"></span>
-                    </div>
+                    <a href="{{route('product.details',['size_id' => $r_product->id])}}" class="product-name">{{$r_product->ProductName}} {{$r_product->SizeName}}</a>
+                    <div class="wrap-price"><p class="product-price">Price: ${{$r_product->Price}}</p></div>
                   </div>
                 </div>
-
+                @endforeach
 
               </div>
             </div>
