@@ -17,14 +17,21 @@
     <div class="container mt-2 mb-5">
         <a href="" class="text-black d-flex justify-content-start align-items-center gap-2"><i class="fa fa-chevron-left text-black"></i><span>Choose more</span></a>
         <h4 class="fw-bold mt-2">Payment</h4>
-        <form action="">
+        <form action="#">
+            @csrf
             <div class="formBig d-flex justify-content-between row mx-0">
+                @error('checkout')
                 <div class="formTop mt-2 col-12 alert alert-warning d-flex gap-2 justify-content-left align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16" style="color: #8fae1b">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                    </svg>
-                    <span>NOTICE HERE</span>
+                    <span class="text-danger">Đang xảy ra lỗi</span> <br>
                 </div>
+                @enderror
+                @if (Session::has('success'))
+                <div class="formTop mt-2 col-12 alert alert-warning d-flex gap-2 justify-content-left align-items-center">
+                    <div class="alert alert-warning">
+                        {{Session::get('success')}}
+                    </div>
+                </div>
+                @endif
                 <div class="formLeft p-3 mt-2 box shadow">
                     <p class="fs-5" style="font-weight: 600;">Your information</p>
                     <input type="radio" name="sex" id="rdoMale">
@@ -32,13 +39,14 @@
                     <input type="radio" name="sex" id="rdoFemale" class="ms-2">
                     <label for="lblFemale">Female</label><br>
                     <label for="lblName" class="form-label">Name:</label><br>
-                    <input type="text" class="form-control" pattern="[A-za-z]" required><br>
+                    <input type="text" class="form-control" pattern="[A-za-z]" required wire:model="CusName"><br>
                     <label for="lblPhone" class="form-label">Phone:</label><br>
-                    <input type="text" class="form-control" pattern="[0-9]{9-11}" required><br>
+                    <input type="text" class="form-control" pattern="[0-9]{9-11}" required wire:model="phone"><br>
                     <label for="lblEmail" class="form-label">Email:</label><br>
-                    <input type="text" class="form-control" pattern="[A-za-z]" required><br>
+                    <input type="text" class="form-control" pattern="[A-za-z]" required wire:model="CusEmail"><br>
                     <p class="fs-5" style="font-weight: 600;">Address</p>
-                    <label for="lblArea" class="form-label">Area:</label><br>
+                    <Textarea class="form-control" wire:model="address"></Textarea>
+                    <!-- <label for="lblArea" class="form-label">Area:</label><br>
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -57,7 +65,7 @@
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2"></label>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="formRight p-3 mt-2 box shadow">
                     <div class="d-flex justify-content-between">
@@ -69,9 +77,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
-                                 @foreach (Cart::Content() as $item)
+                                @foreach (Cart::Content() as $item)
                                 <div class="d-flex justify-content-center align-items-center gap-3 pb-2">
-                                   
+
                                     <img src="{{$item->options->image}}" alt="" width="100px" height="100px">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
 
@@ -83,7 +91,7 @@
                                             <span></span>
                                         </div>
                                     </div>
-                                  
+
                                     <a href="">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
@@ -200,7 +208,7 @@
                         <span>I have read and agree to the website's <a href="">terms and conditions</a></span>
                     </div>
                     <div class="d-grid gap-2 mt-5">
-                        <button class="btn btn-primary" type="submit">Order</button>
+                        <button class="btn btn-primary" type="submit" wire:click.prevent="save">Order</button>
                     </div>
                 </div>
             </div>

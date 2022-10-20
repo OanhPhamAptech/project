@@ -43,6 +43,7 @@ class DetailsComponent extends Component
           'size' => $size->SizeName,
           'color' => $color->ColorName,
           'idProduct' => $product->id,
+          'idSize'=>$size->id,
         )
       ]);
       session()->flash('success_message', 'Item added in Cart');
