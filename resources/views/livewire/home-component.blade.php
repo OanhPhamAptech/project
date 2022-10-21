@@ -118,9 +118,7 @@
     <div class="container p-0">
       <div class="row">
         <div class="heading_container heading_center">
-          <h2>
-            Apple
-          </h2>
+          <h2>Apple</h2>
         </div>
         <div class="owl-carousel owl-theme featured-carousel">
           @foreach($productsApple as $productApple)
@@ -128,20 +126,11 @@
             <a href="">
               <img src="{{ $productApple->Featured }}" alt="" class="img-fluid">
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
-                <h6 class="fs-6 mt-3">
-                  {{ $productApple->ProductName }} {{ $productApple->SizeName }}
-                </h6>
-                <h6>
-                  Price:
-                  <span>
-                    $ {{ $productApple->Price }}
-                  </span>
-                </h6>
+                <h6 class="fs-6 mt-3"> {{ $productApple->ProductName }} {{ $productApple->SizeName }}</h6>
+                <h6>Price: <span>$ {{ $productApple->Price }}</span></h6>
               </div>
               <div class="new">
-                <span>
-                  New
-                </span>
+                <span>New</span>
               </div>
             </a>
           </div>
