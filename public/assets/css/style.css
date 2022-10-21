@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+.main-content-area {
+  padding: 60px 0;
+}
+
 .products-cart {
   padding: 0;
 }
@@ -15,7 +19,7 @@
   width: 100%;
 }
 .products-cart .pr-cart-item .product-image {
-  width: 60px;
+  max-width: 200px;
 }
 .products-cart .pr-cart-item .product-image figure {
   margin: 0;

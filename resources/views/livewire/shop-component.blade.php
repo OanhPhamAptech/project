@@ -1,9 +1,6 @@
 <div class="container">
-  <h2>Shop Page</h2>
-
   <!-- widget categoris -->
   <div class="widget categories-widget">
-    <h2 class="widget-title">All Category</h2>
     <div class="widget-content">
       <ul class="list-category">
       </ul>
@@ -23,7 +20,7 @@
               <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
               <h6>Price:<span>{{number_format($product->price)}} VNĐ</span></h6>
             </div>
-            <div class="new">
+            <div class="new d-none">
               <span> New </span>
             </div>
           </div>
