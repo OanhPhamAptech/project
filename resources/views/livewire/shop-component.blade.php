@@ -1,12 +1,15 @@
 <div class="container">
   <!-- widget categoris -->
-  <div class="widget categories-widget">
-    <div class="widget-content">
-      <ul class="list-category">
-        @foreach ($category as $category)
-        <li class="category-item"><a href="{{route('product.product_category',['category_id'=>$category->id])}}" class="cat-link">{{$category->CatName}}</a></li>
-        @endforeach
-      </ul>
+  <div class="product-category">
+    <div></div>
+    <div class="widget categories-widget" id="categories-widget">
+      <div class="widget-content">
+        <ul class="list-category">
+          @foreach ($category as $category)
+          <li class="category-item"><a href="{{route('product.product_category',['category_id'=>$category->id])}}" class="cat-link">{{$category->CatName}}</a></li>
+          @endforeach
+        </ul>
+      </div>
     </div>
   </div>
   <!-- shop section -->

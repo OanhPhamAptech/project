@@ -1548,6 +1548,11 @@ a:focus {
   padding: 60px 0;
   border-top: 1px solid rgba(130, 130, 130, 0.6);
 }
+.product-category #categories-widget {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
 .product-category .categories-widget {
   display: -webkit-box;
   display: -ms-flexbox;

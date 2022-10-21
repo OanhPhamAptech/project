@@ -1420,6 +1420,9 @@ a:focus {
 .product-category {
   padding: 60px 0;
   border-top: 1px solid rgba(#828282, 0.6);
+  #categories-widget {
+    justify-content: end;
+  }
   .categories-widget {
     display: flex;
     justify-content: space-between;
