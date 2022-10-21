@@ -148,7 +148,7 @@
           @endforeach
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center"><a href="" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+      <div class="d-flex justify-content-center align-items-center"><a href="{{route('product.category',['cat_id' => $productApple->category_id])}}" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
     </div>
     <div class="container mt-5 p-0">
       <div class="row">
@@ -183,7 +183,7 @@
           @endforeach
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center"><a href="" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
+      <div class="d-flex justify-content-center align-items-center"><a href="{{route('product.category',['cat_id' => $productSamsung->category_id])}}" class="btn btn-warning fw-bold text-white shadow">View All</a></div>
     </div>
     <div class="container mt-5 p-0">
       <div class="row">
