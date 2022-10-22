@@ -23,5 +23,12 @@ class order_detail extends Model
                 
     ];
 
-    
+    public function order()
+    {
+        return $this->belongsTo('App\Models\order');
+    }
+    public function color()
+    {
+        return $this->belongsTo('App\Models\color');
+    }
 }

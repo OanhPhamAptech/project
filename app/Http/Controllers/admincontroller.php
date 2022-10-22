@@ -383,7 +383,7 @@ class admincontroller extends Controller
             $collections = collect([$orders_pd, $orders_ap])->collapse();
             $collections = $collections->paginate(5);
 
-           
+
             return view('/order', compact('orders_pd', 'orders_ap', 'collections'));
         } else {
             return redirect('/login');
@@ -407,9 +407,16 @@ class admincontroller extends Controller
     public function cancel_order($id)
     {
         if (Auth::check()) {
-            $order = order::where('id', $id)->update([
+            $order = order::where('id',$id)
+            ->update([
                 'Status' => 2,
                 'users_id' => auth::user()->id,
+            ]);
+            $order = order::find($id);
+            $order_detail = $order->order_detail()->where('order_id', '=', $id)->first();        
+            $color = color::where('id', '=', $order_detail->color_id)->first();           
+            $color = color::find($color->id)->update([
+                'Quantity' => $color->Quantity + $order_detail->quantity,
             ]);
 
             return redirect()->route('showorder');
@@ -446,7 +453,6 @@ class admincontroller extends Controller
     public function edituser($id)
     {
         if (Auth::check()) {
-
             $users = user::findOrFail($id);
             return view('/edit_user', compact('users'));
         } else {

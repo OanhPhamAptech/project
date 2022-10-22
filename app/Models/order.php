@@ -28,7 +28,10 @@ class order extends Model
     {
         return $this->belongsToMany('App\Models\User');
     }
-
+    public function order_detail()
+    {
+        return $this->hasMany('App\Models\order_detail');
+    }
     
 
 }
