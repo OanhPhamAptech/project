@@ -1,16 +1,19 @@
 <div class="container">
-  <h2>Shop Page</h2>
-
   <!-- widget categoris -->
-  <div class="widget categories-widget">
-    <h2 class="widget-title">All Category</h2>
-    <div class="widget-content">
-      <ul class="list-category">
-      </ul>
+  <div class="product-category">
+    <div></div>
+    <div class="widget categories-widget" id="categories-widget">
+      <div class="widget-content">
+        <ul class="list-category">
+          @foreach ($category as $category)
+          <li class="category-item"><a href="{{route('product.product_category',['category_id'=>$category->id])}}" class="cat-link">{{$category->CatName}}</a></li>
+          @endforeach
+        </ul>
+      </div>
     </div>
   </div>
   <!-- shop section -->
-  <div class="row">
+  <div class=" row">
     @foreach ($product as $product)
     <div class="col-sm-3 ">
       <div class="card">
@@ -23,7 +26,7 @@
               <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
               <h6>Price:<span>{{number_format($product->price)}} VNĐ</span></h6>
             </div>
-            <div class="new">
+            <div class="new d-none">
               <span> New </span>
             </div>
           </div>

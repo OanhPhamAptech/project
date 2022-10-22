@@ -10,15 +10,13 @@ class category extends Model
     use HasFactory;
     protected $table = 'category';
     protected $fillable = [
-        'id',        
-        'CatName',       
+        'id',
+        'CatName',
         'CatStatus'
-        
     ];
 
     public function product()
     {
         return $this->hasMany('App\Models\product');
     }
-
 }

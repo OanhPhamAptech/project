@@ -1391,8 +1391,7 @@ a:focus {
   }
 
   .widget-product {
-    .product-widget-style {
-    }
+    .product-widget-style {}
 
     a {
       color: #444444;
@@ -1413,6 +1412,54 @@ a:focus {
     .wrap-price {
       font-weight: 700;
       color: #222222;
+    }
+  }
+}
+
+
+.product-category {
+  padding: 60px 0;
+  border-top: 1px solid rgba(#828282, 0.6);
+  #categories-widget {
+    justify-content: end;
+  }
+  .categories-widget {
+    display: flex;
+    justify-content: space-between;
+  
+    .widget-content {
+      .list-category {
+        padding: 0;
+        display: flex;
+        margin: 0;
+  
+        .category-item {
+          list-style: none;
+          margin-right: 8px;
+  
+          .cat-link {
+            color: #828282;
+            background: rgba(#f0d43a, 0.6);
+            border-radius: 5px;
+            padding: 6px;
+  
+            &:hover {
+              color: $white;
+              background: #f0d43a;
+            }
+  
+            &#clear {
+              background: rgba(red, 0.7);
+              color: rgba($white,0.7);
+  
+              &:hover {
+                background: rgba(red, 0.9);
+                color: $white;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

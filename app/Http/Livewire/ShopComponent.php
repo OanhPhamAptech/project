@@ -22,13 +22,13 @@ class ShopComponent extends Component
   use WithPagination;
   public function render()
   {
-    $category = DB::table('category')->where('CatStatus', '0')->orderBy('id', 'desc')->select('*');
+    $category = DB::table('category')->where('CatStatus', '1')->orderBy('id', 'desc')->select('*');
     $category = $category->get();
 
     $product = DB::table('product')->where('ProductStatus','=','1')
     ->join('size','size.product_id','=','product.id')->select('product.ProductName','product.Featured', 'size.id','size.SizeName','size.price');
     $product = $product->get();
     
-    return view('livewire.shop-component', ['product' => $product])->layout("layouts.base");
+    return view('livewire.shop-component', ['product' => $product, 'category'=>$category])->layout("layouts.base");
   }
 }

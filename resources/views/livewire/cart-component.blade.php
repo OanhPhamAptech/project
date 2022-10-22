@@ -23,15 +23,14 @@
             @foreach (Cart::Content() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="//{{$item->options->image}}" alt="img"></figure>
+                <figure><img src="{{$item->options->image}}" alt="img"></figure>
               </div>
               <div class="product-name">
                 <a class="link-to-product" href="">{{$item->name}}</a>
                 <p>Color : {{$item->options->color}}</p>
                 <p>Size : {{$item->options->size}}</p>
-                <p>Color ID : {{$item->id}}</p>
               </div>
-              <div class=" price-field produtc-price">
+              <div class="d-none  price-field produtc-price">
                 <p class="price">${{number_format($item->price)}}</p>
               </div>
               <div class="quantity">
@@ -78,13 +77,13 @@
               <a class="link-to-shop" href="/shop" wire:click="checkout" >Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-12 col-md-3 update-clear">
-              <a class="btn btn-clear" href="#" wire:click.prevent=" removeCart">Clear Shopping Cart</a>
-              <a class="btn btn-update" href="#">Update Shopping Cart</a>
+              <a class="btn btn-clear" href="#" wire:click.prevent="removeCart">Clear Shopping Cart</a>
+              <a class="d-none btn btn-update" href="#">Update Shopping Cart</a>
             </div>
           </div>
         </div>
 
-        <div class="wrap-show-advance-info-box style-1 box-in-site">
+        <div class="wrap-show-advance-info-box style-1 box-in-site d-none">
           <h3 class="title-box">Most Viewed Products</h3>
           <div class="wrap-products">
             <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}'>
