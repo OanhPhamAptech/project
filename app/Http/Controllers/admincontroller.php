@@ -10,6 +10,9 @@ use App\Models\size;
 use App\Models\color;
 use App\Models\image;
 use App\Models\category;
+use App\Models\order;
+use App\Models\order_detail;
+use App\Models\customer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -359,7 +362,7 @@ class admincontroller extends Controller
         if (Auth::check()) {
             $products = product::find($id);
             $products->delete();
-            
+
             return redirect()->route('showproduct')->with('success', "Xóa dòng dữ liệu thành công");
         } else {
             return redirect('/login');
@@ -369,21 +372,62 @@ class admincontroller extends Controller
     public function showorder()
     {
         if (Auth::check()) {
-            return view('/order');
+            $orders_pd = DB::table('orders');
+            $orders_pd  = $orders_pd->where('users_id','=', null)->orderBy('Status', 'asc')->paginate(10);
+
+            $orders_ap = DB::table('users')
+                ->join('orders', 'users.id', '=', 'orders.users_id')
+                ->select('*');
+            $orders_ap = $orders_ap->orderBy('Status', 'asc')->paginate(10);
+
+            return view('/order', compact('orders_pd','orders_ap'));
         } else {
             return redirect('/login');
         }
     }
-    //hiển thị chi tiết đơn hàng
-    public function showorder_detail()
+    //Duyệt đơn 
+    public function approve_order($id)
     {
         if (Auth::check()) {
-            return view('/order_detail');
+            $order = order::where('id', $id)->update([
+                'Status' => 1,
+                'users_id' => auth::user()->id,
+            ]);
+
+            return redirect()->route('showorder');
         } else {
             return redirect('/login');
         }
     }
-    // hiển thị danh sách nhân viên
+
+    public function cancel_order($id)
+    {
+        if (Auth::check()) {
+            $order = order::where('id', $id)->update([
+                'Status' => 2,
+                'users_id' => auth::user()->id,
+            ]);
+
+            return redirect()->route('showorder');
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    //hiển thị chi tiết đơn hàng
+    public function showorder_detail($id)
+    {
+        if (Auth::check()) {
+            $order_detail = order_detail::where('order_id', $id)->get();
+            $order = order::find($id);
+            $customer = customer::find($order->customers_id);
+
+            return view('/order_detail', compact('order_detail', 'order', 'customer'));
+        } else {
+            return redirect('/login');
+        }
+    }
+    // hiển thị danh sách nhân viên 
     public function showuser()
     {
         if (Auth::check()) {

@@ -75,9 +75,11 @@ route::get('search',[App\Http\Controllers\admincontroller::class,'search'])->nam
 
 //controller cho order
 //show order list
-Route::get('/admin/order', [App\Http\Controllers\admincontroller::class, 'showorder'])->middleware('CheckLogin')->name('showorder');
+Route::get('/admin/order', [App\Http\Controllers\admincontroller::class, 'showorder'])->name('showorder');
 // order detail
-Route::get('/admin/order_detail', [App\Http\Controllers\admincontroller::class, 'showorder_detail']);
+Route::get('/admin/order_{id}', [App\Http\Controllers\admincontroller::class, 'showorder_detail']);
+Route::post('/admin/aprrove_order_{id}', [App\Http\Controllers\admincontroller::class, 'approve_order']);
+Route::post('/admin/cancel_order_{id}', [App\Http\Controllers\admincontroller::class, 'cancel_order']);
 
 
 

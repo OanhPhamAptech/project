@@ -25,4 +25,10 @@ class image extends Model
     public function color(){
         return $this->belongsTo('App\Models\color');
     }
+    public function order_detail()
+    {
+        return $this->hasManyThrough('App\Models\color','App\Models\order_detail');
+    }
+
+
 }

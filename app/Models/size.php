@@ -25,4 +25,10 @@ class size extends Model
     {
         return $this->hasMany('App\Models\color');
     }
+
+    public function order_detail()
+    {
+        return $this->hasMany('App\Models\order_detail');
+    }
+
 }

@@ -18,4 +18,17 @@ class order extends Model
         'customers_id',
                 
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\customer');
+    }
+
+    public function user()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
+    
+
 }

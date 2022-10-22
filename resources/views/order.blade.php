@@ -87,26 +87,51 @@
                                             <th>No.</th>
                                             <th>Order ID</th>
                                             <th>Total Amount</th>
-                                            <th>Status</th>
-                                            <th width="20%"></th>
+                                            <th>Order Date</th>
+                                            <th width="25%">Status</th>
 
 
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        @foreach ($orders_pd as $order_pd)
                                         <tr>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td class="d-flex justify-content-center">
-                                                <a href="/admin/order_detail" class="p-1 m-1 btn btn-primary" >Chi tiết</a>
-                                                <a href="" class="p-1 m-1 btn btn-danger"  >Hủy đơn</a>
-                                            </td>
-
+                                            <td class=" justify-content-center"> <a href="/admin/order_{{$order_pd->id}}" class="p-1 m-1">{{$order_pd->id}} </a> </td>
+                                            <td>{{$order_pd->Total}}</td>
+                                            <td>{{$order_pd->created_at}}</td>
+                                           
+                                            <td>
+                                                <form style="display:inline-block;" action="/admin/aprrove_order_{{$order_pd->id}}" method="post" onsubmit="return confirm('Bạn muốn duyệt đơn hàng này?')">
+                                                    @csrf
+                                                    <button type="submit" class="p-1 m-1 btn btn-success">Duyệt đơn</button>
+                                                </form>
+                                                <form style="display:inline-block;" action="/admin/cancel_order_{{$order_pd->id}}" method="post" onsubmit="return confirm('Bạn muốn hủy đơn hàng này?')">
+                                                    @csrf
+                                                    <button type="submit" class="p-1 m-1 btn btn-danger ">Hủy đơn </button>
+                                                </form>
+                                            </td>                                         
 
                                         </tr>
+                                        @endforeach
+                                        @foreach ($orders_ap as $order_ap)
+                                        <tr>
+                                            <td></td>
+                                            <td class=" justify-content-center"> <a href="/admin/order_{{$order_ap->id}}" class="p-1 m-1">{{$order_ap->id}} </a> </td>
+                                            <td>{{$order_ap->Total}}</td>
+                                            <td>{{$order_ap->created_at}}</td>  
+                                            @if($order_ap->Status==1)                                     
+                                            
+                                            <td class="text-success">Đã duyệt bởi {{$order_ap->name}} </td>
+                                            @elseif($order_ap->Status==2)
+                                            <td class="text-danger">Đã hủy bởi {{$order_ap->name}}</td>
+                                            @endif
+                                            </td>                                         
+
+                                        </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

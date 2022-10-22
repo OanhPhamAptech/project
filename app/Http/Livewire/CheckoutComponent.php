@@ -49,7 +49,9 @@ class CheckoutComponent extends Component
           $order_detail->product_id = $item->options->idProduct;
           $order_detail->ProductName = $item->name;
           $order_detail->size_id = $item->options->idSize;
+          $order_detail->SizeName = $item->options->size;
           $order_detail->color_id = $item->id;
+          $order_detail->ColorName = $item->options->color;
           $order_detail->Price = $item->price;
           $order_detail->quantity=$item->qty;
           $order_detail->TotalPrice = $item->subtotal;

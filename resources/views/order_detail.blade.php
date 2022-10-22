@@ -85,17 +85,22 @@
                         <!-- order list -->
                         <div class="d-flex">
                             <div class="col-sm-6">
-                                <p>Order ID : </p>
-                                <p>Status : </p>
-                                <p>Tổng giá trị hóa đơn : </p>
+                                <p>Order ID : {{$order->id}}</p>
+                                @if($order->Status==0)
+                                <p class = "text-primary">Status :  Chưa Duyệt</p>
+                                @elseif($order->Status==1)
+                                <p class = "text-success">Status : Đã duyệt</p>
+                                @elseif($order->Status==2)
+                                <p class = "text-danger">Status : Đã hủy</p>
+                                @endif
+                                <p>Tổng giá trị hóa đơn : {{$order->Total}}</p>
                             </div>
                             <div class=".col-sm-6">
                                 <h5>Thông tin giao hàng</h5>
-                                <p>Người nhận : </p>
-                                <p>Số điện thoại : </p>
-                                <p>Địa chỉ : </p>
-                                <p>Email : </p>
-
+                                <p>Người nhận : {{$customer->name}}</p>
+                                <p>Số điện thoại : {{$order->phone}} </p>
+                                <p>Địa chỉ giao hàng : {{$order->address}}  </p>
+                                <p>Email : {{$customer->email}}</p>
                             </div>
                         </div>
                         <div class="card shadow mb-4">
@@ -106,25 +111,27 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Product Name</th>
-                                                <th>Picture</th>
+                                                <th>Product Name</th>                                             
                                                 <th>Price</th>
                                                 <th>Size</th>
                                                 <th>Color</th>
                                                 <th>Quantity</th>
+                                                <th>Total Price</th>
 
                                             </tr>
                                         </thead>
 
                                         <tbody>
+                                            @foreach($order_detail as $detail)
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{$detail->ProductName}}</td>                                               
+                                                <td>{{number_format($detail->Price)}}</td>
+                                                <td>{{$detail->SizeName}}</td>
+                                                <td>{{$detail->ColorName}}</td>
+                                                <td>{{$detail->quantity}}</td>
+                                                <td>{{number_format($detail->TotalPrice)}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

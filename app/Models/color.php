@@ -27,5 +27,9 @@ class color extends Model
         return $this->hasOne('App\Models\image');
     }
 
+    public function order_detail()
+    {
+        return $this->hasMany('App\Models\order_detail');
+    }
 
 }

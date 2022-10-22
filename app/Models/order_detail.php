@@ -15,9 +15,13 @@ class order_detail extends Model
         'product_id',
         'ProductName',
         'size_id',
+        'SizeName',
         'color_id',
+        'ColorName',
         'Price',
         'TotalPrice',
                 
     ];
+
+    
 }
