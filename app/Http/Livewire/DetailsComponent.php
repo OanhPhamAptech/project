@@ -39,13 +39,14 @@ class DetailsComponent extends Component
         'price' => $size->Price,
         'qty' => 1,
         'options' => array(
-          'image' => $product->Featured,
+          'image' => $color->img()->first()->URL,
           'size' => $size->SizeName,
           'color' => $color->ColorName,
           'idProduct' => $product->id,
           'idSize'=>$size->id,
         )
       ]);
+
       session()->flash('success_message', 'Item added in Cart');
     }
     return redirect()->route('product.cart');

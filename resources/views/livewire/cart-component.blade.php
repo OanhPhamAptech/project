@@ -23,8 +23,9 @@
             @foreach (Cart::Content() as $item)
             <li class="pr-cart-item">
               <div class="product-image">
-                <figure><img src="{{$item->options->image}}" alt="img"></figure>
+                <figure><img src="{{$item->options->image}}" alt="img"> </figure>               
               </div>
+                         
               <div class="product-name">
                 <a class="link-to-product" href="">{{$item->name}}</a>
                 <p>Color : {{$item->options->color}}</p>
