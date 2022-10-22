@@ -37,11 +37,17 @@ class CartComponent extends Component
     $qty = $product->qty - 1;
     Cart::update($rowId, $qty);
   }
-  public function checkout($CartItems)
+  public function checkout()
   {
-    $CartItems = \Cart::Content();
-    $this->CartItems = $CartItems;
-    $this->emit('checkout');
+    if (count(\Cart::Content()) > 0) {
+      $CartItems = \Cart::Content();
+      $this->CartItems = $CartItems;
+      $this->emit('checkout');
+      return redirect()->route('checkout');
+    } else {
+      
+      session()->flash('success_message', 'Bạn chưa chọn sản phẩm ');
+    }
   }
   public function render()
   {

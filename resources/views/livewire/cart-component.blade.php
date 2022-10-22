@@ -73,8 +73,8 @@
               <label class="checkbox-field">
                 <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
               </label>
-              <a class="btn btn-checkout" href="checkout">Check out</a>
-              <a class="link-to-shop" href="/shop" wire:click="checkout" >Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+              <a class="btn btn-checkout" wire:click="checkout" >Check out</a>
+              <a class="link-to-shop" href="/shop"  >Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
             <div class="col-12 col-md-3 update-clear">
               <a class="btn btn-clear" href="#" wire:click.prevent="removeCart">Clear Shopping Cart</a>
