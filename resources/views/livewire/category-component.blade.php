@@ -125,7 +125,7 @@
         @foreach($products as $product)
         <div class="col-sm-6 col-md-4 col-xl-3">
           <div class="box shadow productBox">
-            <a href="">
+            <a href="{{route('product.details',['size_id' => $product->id])}}">
               <img src="{{ $product->Featured }}" alt="" class="img-fluid">
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3">

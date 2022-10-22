@@ -123,7 +123,7 @@
         <div class="owl-carousel owl-theme featured-carousel">
           @foreach($productsApple as $productApple)
           <div class="mx-3 my-3 box shadow productBox item">
-            <a href="">
+            <a href="{{route('product.details',['size_id' => $productApple->id])}}">
               <img src="{{ $productApple->Featured }}" alt="" class="img-fluid">
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3"> {{ $productApple->ProductName }} {{ $productApple->SizeName }}</h6>
@@ -149,7 +149,7 @@
         <div class="owl-carousel owl-theme featured-carousel">
           @foreach($productsSamsung as $productSamsung)
           <div class="mx-3 my-3 box shadow productBox item">
-            <a href="">
+            <a href="{{route('product.details',['size_id' => $productSamsung->id])}}">
               <img src="{{ $productSamsung->Featured }}" alt="" class="img-fluid">
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3">
@@ -184,7 +184,7 @@
         <div class="owl-carousel owl-theme featured-carousel">
           @foreach($productsXiaomi as $productXiaomi)
           <div class="mx-3 my-3 box shadow productBox item">
-            <a href="">
+            <a href="{{route('product.details',['size_id' => $productXiaomi->id])}}">
               <img src="{{ $productXiaomi->Featured }}" alt="" class="img-fluid">
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3">
