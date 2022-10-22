@@ -373,14 +373,18 @@ class admincontroller extends Controller
     {
         if (Auth::check()) {
             $orders_pd = DB::table('orders');
-            $orders_pd  = $orders_pd->where('users_id','=', null)->orderBy('Status', 'asc')->paginate(10);
-
+            $orders_pd  = $orders_pd->where('users_id', '=', null)->get();
+            // dd($orders_pd );
             $orders_ap = DB::table('users')
                 ->join('orders', 'users.id', '=', 'orders.users_id')
                 ->select('*');
-            $orders_ap = $orders_ap->orderBy('Status', 'asc')->paginate(10);
+            $orders_ap = $orders_ap->orderBy('Status', 'asc')->get();
+            // dd($orders_ap );
+            $collections = collect([$orders_pd, $orders_ap])->collapse();
+            $collections = $collections->paginate(5);
 
-            return view('/order', compact('orders_pd','orders_ap'));
+           
+            return view('/order', compact('orders_pd', 'orders_ap', 'collections'));
         } else {
             return redirect('/login');
         }

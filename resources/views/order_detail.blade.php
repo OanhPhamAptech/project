@@ -71,9 +71,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- Dashboard -->
-                    @include('admin_tpl/begin_page')
-
+                  
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Chi tiết đơn hàng </h1>
                     <div style="overflow:auto;">

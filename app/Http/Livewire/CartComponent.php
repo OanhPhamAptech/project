@@ -45,7 +45,6 @@ class CartComponent extends Component
       $this->emit('checkout');
       return redirect()->route('checkout');
     } else {
-      
       session()->flash('success_message', 'Bạn chưa chọn sản phẩm ');
     }
   }

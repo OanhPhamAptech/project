@@ -95,45 +95,37 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($orders_pd as $order_pd)
+                                        @foreach($collections as $collection)
+
                                         <tr>
                                             <td></td>
-                                            <td class=" justify-content-center"> <a href="/admin/order_{{$order_pd->id}}" class="p-1 m-1">{{$order_pd->id}} </a> </td>
-                                            <td>{{$order_pd->Total}}</td>
-                                            <td>{{$order_pd->created_at}}</td>
-                                           
+                                            <td class=" justify-content-center"> <a href="/admin/order_{{$collection->id}}" class="p-1 m-1">{{$collection->id}} </a> </td>
+                                            <td>{{$collection->Total}}</td>
+                                            <td>{{$collection->created_at}}</td>
+                                            @if($collection->Status==0)
                                             <td>
-                                                <form style="display:inline-block;" action="/admin/aprrove_order_{{$order_pd->id}}" method="post" onsubmit="return confirm('Bạn muốn duyệt đơn hàng này?')">
+                                                <form style="display:inline-block;" action="/admin/aprrove_order_{{$collection->id}}" method="post" onsubmit="return confirm('Bạn muốn duyệt đơn hàng này?')">
                                                     @csrf
                                                     <button type="submit" class="p-1 m-1 btn btn-success">Duyệt đơn</button>
                                                 </form>
-                                                <form style="display:inline-block;" action="/admin/cancel_order_{{$order_pd->id}}" method="post" onsubmit="return confirm('Bạn muốn hủy đơn hàng này?')">
+                                                <form style="display:inline-block;" action="/admin/cancel_order_{{$collection->id}}" method="post" onsubmit="return confirm('Bạn muốn hủy đơn hàng này?')">
                                                     @csrf
                                                     <button type="submit" class="p-1 m-1 btn btn-danger ">Hủy đơn </button>
                                                 </form>
-                                            </td>                                         
-
-                                        </tr>
-                                        @endforeach
-                                        @foreach ($orders_ap as $order_ap)
-                                        <tr>
-                                            <td></td>
-                                            <td class=" justify-content-center"> <a href="/admin/order_{{$order_ap->id}}" class="p-1 m-1">{{$order_ap->id}} </a> </td>
-                                            <td>{{$order_ap->Total}}</td>
-                                            <td>{{$order_ap->created_at}}</td>  
-                                            @if($order_ap->Status==1)                                     
-                                            
-                                            <td class="text-success">Đã duyệt bởi {{$order_ap->name}} </td>
-                                            @elseif($order_ap->Status==2)
-                                            <td class="text-danger">Đã hủy bởi {{$order_ap->name}}</td>
+                                            </td>
+                                            @elseif($collection->Status==1)
+                                            <td class="text-success">Đã duyệt bởi {{$collection->name}} </td>
+                                            @else($collection->Status==2)
+                                            <td class="text-danger">Đã hủy bởi {{$collection->name}}</td>
                                             @endif
-                                            </td>                                         
+                                            </td>
 
                                         </tr>
                                         @endforeach
-
+                                      
                                     </tbody>
                                 </table>
+                                {{$collections->links()}}
                             </div>
                         </div>
                     </div>
