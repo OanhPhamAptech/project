@@ -17,10 +17,12 @@ class DetailsComponent extends Component
   protected $rules = [
     'ColorID' => 'required',
   ];
+  public $imagecolor;
 
   public function mount($size_id)
   {
     $this->size_id = $size_id;
+    
   }
 
   public function store()
@@ -43,7 +45,7 @@ class DetailsComponent extends Component
           'size' => $size->SizeName,
           'color' => $color->ColorName,
           'idProduct' => $product->id,
-          'idSize'=>$size->id,
+          'idSize' => $size->id,
         )
       ]);
 
@@ -56,11 +58,16 @@ class DetailsComponent extends Component
   public function render()
   {
     $size = Size::where('id', $this->size_id)->first();
-
     $product = $size->product()->where('id', $size->product_id)->get();
     $product = Product::find($size->product_id);
-
     $colors = Size::find($this->size_id)->color;
+
+    if ($this->ColorID != null) {
+      $ColorID = $this->ColorID;
+      $ColorID = color::find($this->ColorID);
+      $this->imagecolor = $ColorID->img()->first()->URL;     
+    }
+   
 
     // popular products
     $popular_products = DB::table('product')->join('size', 'size.product_id', '=', 'product.id')->select();
@@ -71,12 +78,10 @@ class DetailsComponent extends Component
       ->join('size', 'size.product_id', '=', 'product.id')
       ->join('category', 'category.id', '=', 'product.category_id')
       ->where('category.id', $product->category_id)
-      ->select('product.ProductName', 'product.Featured','Size.id','Size.SizeName','Size.Price');
+      ->select('product.ProductName', 'product.Featured', 'Size.id', 'Size.SizeName', 'Size.Price');
     $related = $related->inRandomOrder()->limit(10)->get();
 
-    foreach ($colors as $color) {
-      $color->img()->get('URL');
-    }
+   
 
     return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related])->layout('layouts.base');
   }
