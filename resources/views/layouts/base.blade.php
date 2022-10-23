@@ -45,7 +45,7 @@
 <header class="header_section">
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg custom_nav-container ">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/">
         <span>Timups</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html"> About </a>
+            <a class="nav-link" href="#contact"> About </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact Us</a>
@@ -87,6 +87,7 @@
           <!-- Cart -->
           <a href="/cart">
             <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            <span style ="font-size:9px" class=" badge badge-danger">{{\Cart::Content()->count()}}</span>
           </a>
         </div>
       </div>
