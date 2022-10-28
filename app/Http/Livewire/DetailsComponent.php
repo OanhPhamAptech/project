@@ -109,8 +109,13 @@ class DetailsComponent extends Component
       ->select('product.ProductName', 'product.Featured', 'Size.id', 'Size.SizeName', 'Size.Price');
     $related = $related->inRandomOrder()->limit(10)->get();
 
+    $comments = DB::table('comments')
+    ->select('Name', 'Email', 'Content', 'Vote', 'created_at')->where('ProductID','=',$product->id)->get();
+
+    $commentsCount = DB::table('comments')
+    ->select('id')->where('ProductID','=',$product->id)->get()->count();
 
 
-    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related])->layout('layouts.base');
+    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related, 'comments'=>$comments, 'commentsCount'=>$commentsCount])->layout('layouts.base');
   }
 }
