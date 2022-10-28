@@ -1,38 +1,38 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.nav-item a{
+.nav-item a {
     color: black;
 }
 
-.nav-item a:hover{
+.nav-item a:hover {
     background-color: #ffc107;
     color: white;
 }
 
-.nav-item a:active{
+.nav-item a:active {
     background-color: #ffc107;
     color: white;
 
 }
 
-.productBox{
+.productBox {
     transition-duration: 0.7s;
 }
 
-.productBox:hover{
+.productBox:hover {
     transform: scale(105%);
     transition: 0.7s;
 }
 
-.formTop{
+.formTop {
     border-left: 3px solid #339901;
 }
 
-.box-arrow-top{
+.box-arrow-top {
     width: 100%;
     height: auto;
     background-color: #F2F2F2;
@@ -53,33 +53,33 @@
     border-bottom: 15px solid #F2F2F2;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.divFormEmail{
+.divFormEmail {
     position: relative;
 }
 
-.inpFormEmail{
+.inpFormEmail {
     width: 600px;
     border-radius: 30px;
     border: none;
     outline: none;
 }
 
-.btnFormEmail{
+.btnFormEmail {
     border-radius: 30px;
     position: absolute;
     right: 0;
 }
 
-.divGetEmail{
+.divGetEmail {
     padding: 100px 0;
 }
 
 .featured-carousel .owl-next,
-.featured-carousel .owl-prev{
+.featured-carousel .owl-prev {
     position: absolute;
     top: 40%;
     font-size: 30px !important;
@@ -88,16 +88,16 @@
     transition: 0.5s;
 }
 
-.featured-carousel .owl-next{
+.featured-carousel .owl-next {
     right: 20px;
 }
 
-.featured-carousel .owl-prev{
+.featured-carousel .owl-prev {
     left: 20px;
 }
 
 .featured-carousel .owl-next:hover,
-.featured-carousel .owl-prev:hover{
+.featured-carousel .owl-prev:hover {
     background: none !important;
     outline: none !important;
     color: black !important;
@@ -105,44 +105,43 @@
 }
 
 @media only screen and (max-width: 576px) {
-    .formBig{
+    .formBig {
         width: 100%;
     }
 
-    .formLeft{
+    .formLeft {
         width: 100%;
     }
 
-    .formRight{
+    .formRight {
         width: 100%;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .formBig{
+    .formBig {
         width: 100%;
     }
 
-    .formLeft{
+    .formLeft {
         width: 100%;
     }
 
-    .formRight{
+    .formRight {
         width: 100%;
     }
 }
 
 @media only screen and (min-width: 768px) {
-    .formBig{
+    .formBig {
         width: 100%;
     }
 
-    .formLeft{
+    .formLeft {
         width: 60%;
     }
 
-    .formRight{
+    .formRight {
         width: 38%;
     }
 }
-

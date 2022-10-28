@@ -104,38 +104,40 @@
                         <div id="review_form">
                           <div id="respond" class="comment-respond">
 
-                            <form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+                            <form action="#" method="post" id="commentform" class="comment-form" novalidate="" wire:submit.prevent="saveComment">
                               <p class="comment-notes">
                                 <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
                               </p>
                               <div class="comment-form-rating">
                                 <span>Your rating</span>
                                 <p class="stars">
-
                                   <label for="rated-1"></label>
-                                  <input type="radio" id="rated-1" name="rating" value="1">
+                                  <input type="radio" id="rated-1" name="rating" value="1" wire:model="vote">
                                   <label for="rated-2"></label>
-                                  <input type="radio" id="rated-2" name="rating" value="2">
+                                  <input type="radio" id="rated-2" name="rating" value="2" wire:model="vote">
                                   <label for="rated-3"></label>
-                                  <input type="radio" id="rated-3" name="rating" value="3">
+                                  <input type="radio" id="rated-3" name="rating" value="3" wire:model="vote">
                                   <label for="rated-4"></label>
-                                  <input type="radio" id="rated-4" name="rating" value="4">
+                                  <input type="radio" id="rated-4" name="rating" value="4" wire:model="vote">
                                   <label for="rated-5"></label>
-                                  <input type="radio" id="rated-5" name="rating" value="5" checked="checked">
+                                  <input type="radio" id="rated-5" name="rating" value="5" wire:model="vote">
                                 </p>
                               </div>
                               <p class="comment-form-author">
                                 <label for="author">Name <span class="required">*</span></label>
-                                <input id="author" name="author" type="text" value="">
+                                <input id="author" name="author" type="text" value="" wire:model="name">
+                                @error('name') <span>{{ $message }}</span> @enderror
                               </p>
                               <p class="comment-form-email">
                                 <label for="email">Email <span class="required">*</span></label>
-                                <input id="email" name="email" type="email" value="">
+                                <input id="email" name="email" type="email" value="" wire:model="email">
+                                @error('email') <span>{{ $message }}</span> @enderror
                               </p>
                               <p class="comment-form-comment">
                                 <label for="comment">Your review <span class="required">*</span>
                                 </label>
-                                <textarea id="comment" name="comment" cols="45" rows="8"></textarea>
+                                <textarea id="comment" name="content" cols="45" rows="8" wire:model="content"></textarea>
+                                @error('content') <span>{{ $message }}</span> @enderror
                               </p>
                               <p class="form-submit">
                                 <input name="submit" type="submit" id="submit" class="submit btn" value="Submit">

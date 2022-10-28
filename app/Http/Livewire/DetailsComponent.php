@@ -8,11 +8,18 @@ use App\Models\Size;
 use App\Models\Color;
 use App\Models\Category;
 use Livewire\Component;
+use App\Models\Comment;
 use Cart;
+use Dotenv\Parser\Value;
+use GuzzleHttp\Psr7\Request;
 
 class DetailsComponent extends Component
 {
   // public $id;
+  public $name;
+  public $email;
+  public $content;
+  public $vote;
   public $ColorID;
   protected $rules = [
     'ColorID' => 'required',
@@ -22,7 +29,28 @@ class DetailsComponent extends Component
   public function mount($size_id)
   {
     $this->size_id = $size_id;
-    
+  }
+
+  function saveComment()
+  {
+    $this->validate([
+      'name' => 'required',
+      'email' => 'required | email',
+      'content' => 'required',
+    ]);
+
+    $size = Size::where('id', $this->size_id)->first();
+    $product = $size->product()->where('id', $size->product_id)->get();
+    $product = Product::find($size->product_id);
+    $comment = new Comment();
+    $comment->ProductID = $product->id;
+    $comment->Name = $this->name;
+    $comment->Email = $this->email;
+    $comment->Content = $this->content;
+    $comment->Vote = $this->vote;
+    $comment->Status = 1;
+    $comment->save();
+    return redirect();
   }
 
   public function store()
@@ -65,9 +93,9 @@ class DetailsComponent extends Component
     if ($this->ColorID != null) {
       $ColorID = $this->ColorID;
       $ColorID = color::find($this->ColorID);
-      $this->imagecolor = $ColorID->img()->first()->URL;     
+      $this->imagecolor = $ColorID->img()->first()->URL;
     }
-   
+
 
     // popular products
     $popular_products = DB::table('product')->join('size', 'size.product_id', '=', 'product.id')->select();
@@ -81,7 +109,7 @@ class DetailsComponent extends Component
       ->select('product.ProductName', 'product.Featured', 'Size.id', 'Size.SizeName', 'Size.Price');
     $related = $related->inRandomOrder()->limit(10)->get();
 
-   
+
 
     return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related])->layout('layouts.base');
   }
