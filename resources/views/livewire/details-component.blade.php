@@ -32,11 +32,37 @@
             </div>
             <div class="detail-info">
               <div class="product-rating">
-                <i class="fa fa-star" aria-hidden="true" style="color:#efce4a;"></i>
-                <i class="fa fa-star" aria-hidden="true" style="color:#efce4a;"></i>
-                <i class="fa fa-star" aria-hidden="true" style="color:#efce4a;"></i>
-                <i class="fa fa-star" aria-hidden="true" style="color:#efce4a;"></i>
-                <i class="fa fa-star" aria-hidden="true" style="color:#efce4a;"></i>
+                @if($avgstars == 1)
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star-o"></span>
+                @elseif($avgstars == 2)
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star-o"></span>
+                @elseif($avgstars == 3)
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star-o"></span>
+                @elseif($avgstars == 4)
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star-o"></span>
+                @else($avgstars == 5)
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                <span class="fa fa-star" style="color:#efce4a"></span>
+                @endif
                 <a href="#" class="count-review">({{ $commentsCount }} review)</a>
               </div>
               <h2 class="product-name"> Name: {{$product->ProductName}} {{$size->SizeName}}</h2>

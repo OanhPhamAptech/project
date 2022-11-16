@@ -114,8 +114,9 @@ class DetailsComponent extends Component
 
     $commentsCount = DB::table('comments')
     ->select('id')->where('ProductID','=',$product->id)->get()->count();
+    $avg_stars = ceil(DB::table('comments')
+    ->avg('vote'));
 
-
-    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related, 'comments'=>$comments, 'commentsCount'=>$commentsCount])->layout('layouts.base');
+    return view('livewire.details-component', ['size' => $size, 'product' => $product, 'colors' => $colors, 'popular_products' => $popular_products, 'related' => $related, 'comments'=>$comments, 'commentsCount'=>$commentsCount, 'avgstars'=>$avg_stars])->layout('layouts.base');
   }
 }
