@@ -58,9 +58,9 @@ class admincontroller extends Controller
                 $products = db::table('product');
                 $sizes = product::find($id)->size;
                 $colors = product::find($id)->color;
-                foreach ($colors as $color) {
-                    $color->img()->get('URL');
-                }
+                // foreach ($colors as $color) {
+                //     $color->img()->get('URL');
+                // }
 
                 return view('product_detail', compact('sizes', 'colors',));
             }
@@ -407,18 +407,28 @@ class admincontroller extends Controller
     public function cancel_order($id)
     {
         if (Auth::check()) {
-            $order = order::where('id',$id)
-            ->update([
-                'Status' => 2,
-                'users_id' => auth::user()->id,
-            ]);
-            $order = order::find($id);
-            $order_detail = $order->order_detail()->where('order_id', '=', $id)->first();        
-            $color = color::where('id', '=', $order_detail->color_id)->first();           
-            $color = color::find($color->id)->update([
-                'Quantity' => $color->Quantity + $order_detail->quantity,
-            ]);
-
+            DB::beginTransaction();
+            try {
+                $order = order::where('id', $id)
+                    ->update([
+                        'Status' => 2,
+                        'users_id' => auth::user()->id,
+                    ]);
+                $order = order::find($id);
+                // $order_details = $order->order_detail()->where('order_id', '=', $id)-> lấy array;
+                $order_details =order::find($id)->order_detail;            
+                foreach ($order_details as  $order_detail) {
+                    $color = color::where('id', '=', $order_detail->color_id)->first();                   
+                    $color = color::find($color->id)->update([
+                        'Quantity' => $color->Quantity + $order_detail->quantity,
+                    ]);
+                }
+             
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollBack();
+                throw $e;
+            }
             return redirect()->route('showorder');
         } else {
             return redirect('/login');
