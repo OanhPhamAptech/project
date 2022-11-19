@@ -118,7 +118,7 @@
                                             
                                             <td class="d-flex justify-content-center">
                                                 <a class="p-1 m-1 btn btn-primary" href="/admin/edit_user/{{$user->id}}">Sửa</a>
-                                                <form action="/delete_user/{{$user->id}}"  method="post" onsubmit="return confirm('Bạn có muốn xóa?')">
+                                                <form action="delete_user/{{$user->id}}"  method="post" onsubmit="return confirm('Bạn có muốn xóa?')">
                                                 @method('delete')
                                                 @csrf
                                                 <button type = "submit" class="p-1 btn btn-danger m-1">Xóa</button>
