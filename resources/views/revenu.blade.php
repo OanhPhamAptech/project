@@ -45,12 +45,12 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link " href="/admin/order"><i class="fa-regular fa-pen-to-square"></i> Quản lý đơn hàng</a>
                 </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link " href="/admin/revenu"><i class="fa-solid fa-sack-dollar"></i> Quản lý doanh thu</a>
                 </li>
                 <!-- Divider -->
@@ -71,75 +71,92 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- Dashboard -->
-                    @include('admin_tpl/begin_page')
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Danh sách đơn hàng</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Tổng kết doanh thu</h1>
                     <!-- Product list -->
                     <div class="card shadow mb-4">
 
                         <div class="card-body">
-                            <div class="input-group card border">
-                                <form action="{{route('search_Order')}}" method="get" >
-                                    <input type="text" name="search" required class="form-control bg-light border-0 small" placeholder="Search Order ID..." aria-label="Search" aria-describedby="basic-addon2">
 
-                                </form>
-                            </div>
                             <br>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered center" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
-                                            <th>Order ID</th>
-                                            <th>Total Amount</th>
-                                            <th>Order Date</th>
-                                            <th width="25%">Status</th>
+                                            <th>Giai đoạn </th>
 
+                                            <th>Tên sản phẩm </th>
+                                            <th>Số lượng</th>
+                                            <th>Doanh thu </th>
 
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        @foreach($collections as $collection)
-
+                                        @foreach ($Revenus as $Revenu)
                                         <tr>
-                                            <td></td>
-                                            <td class=" justify-content-center"> <a href="/admin/order_{{$collection->id}}" class="p-1 m-1">{{$collection->id}} </a> </td>
-                                            <td>{{$collection->Total}}</td>
-                                            <td>{{$collection->created_at}}</td>
-                                            @if($collection->Status==0)
-                                            <td>
-                                                <form style="display:inline-block;" action="/admin/aprrove_order_{{$collection->id}}" method="post" onsubmit="return confirm('Bạn muốn duyệt đơn hàng này?')">
-                                                    @csrf
-                                                    <button type="submit" class="p-1 m-1 btn btn-success">Duyệt đơn</button>
-                                                </form>
-                                                <form style="display:inline-block;" action="/admin/cancel_order_{{$collection->id}}" method="post" onsubmit="return confirm('Bạn muốn hủy đơn hàng này?')">
-                                                    @csrf
-                                                    <button type="submit" class="p-1 m-1 btn btn-danger ">Hủy đơn </button>
-                                                </form>
-                                            </td>
-                                            @elseif($collection->Status==1)
-                                            <td class="text-success">Đã duyệt bởi {{$collection->name}} </td>
-                                            @else($collection->Status==2)
-                                            <td class="text-danger">Đã hủy bởi {{$collection->name}}</td>
-                                            @endif
-                                            </td>
+
+                                            <th> {{$Revenu->month}}</th>
+
+                                            <th>{{$Revenu->ProductName}}</th>
+                                            <th>{{$Revenu->quantity}}</th>
+
+                                            <th>{{number_format($Revenu->Total)}}</th>
 
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
-                                {{$collections->links()}}
+                                {{$Revenus->links()}}
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <!-- /.container-fluid -->
+                <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tổng kết số đơn đã đặt</h1>
+                    <!-- Product list -->
+                    <div class="card shadow mb-4">
+
+                        <div class="card-body">
+
+                            <br>
+                            <div class="table-responsive">
+                                <table class="table table-bordered center" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Giai đoạn </th>
+
+                                            <th>Số đơn hàng khách đặt</th>
+                                            <th>Doanh thu </th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach ($orders as $order)
+                                        <tr>
+
+                                            <th> {{$order->month}}</th>
+
+                                            <th>{{$order->Status}}</th>
+
+                                            <th>{{number_format($order->Total)}}</th>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                {{$orders->links()}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
             <!-- End of Main Content -->
 

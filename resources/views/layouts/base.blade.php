@@ -60,7 +60,7 @@
             <div class="dropdown">
               <a href="/shop" class="btn">Product</a>
               <ul class="dropdown-menu">
-                
+
               </ul>
             </div>
           </li>
@@ -71,15 +71,24 @@
             <a class="nav-link" href="#contact">Contact Us</a>
           </li>
         </ul>
+        
         <div class="user_option-box">
           <!-- search -->
-          <form action="{{route('product.search')}}" wire:submit.prevent="searchProduct" type="GET" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" name="search" wire:model.defer="search" placeholder="Search" aria-label="Search">
-            <a href="" class="d-flex align-items-center">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </a>
-          </form>
+          <form action="{{route('product.search')}}" method="get" class="d-flex" role="search" >
+            @csrf
 
+            <input class="form-control me-2" type="text" name="search" wire:model="search" placeholder="Search" aria-label="Search">
+            <!-- <a href="" class="d-flex align-items-center">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </a> -->
+           
+    
+            <button class="btn btn-primary" type="submit" wire:submit.prevent="searchProduct()"><i class="fa fa-search" aria-hidden="true"></i></button>
+           
+          </form>
+          
+       
+        
           <a href="/checkout">
             <i class="fa fa-user" aria-hidden="true"></i>
           </a>
@@ -87,7 +96,7 @@
           <!-- Cart -->
           <a href="/cart">
             <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            <span style ="font-size:9px" class=" badge badge-danger">{{\Cart::Content()->count()}}</span>
+            <span style="font-size:9px" class=" badge badge-danger">{{\Cart::Content()->count()}}</span>
           </a>
         </div>
       </div>

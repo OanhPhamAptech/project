@@ -72,7 +72,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Dashboard -->
-                    @include('admin_tpl/begin_page')
+               
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Danh sách đơn hàng</h1>
@@ -80,10 +80,10 @@
                     <div class="card shadow mb-4">
 
                         <div class="card-body">
-                            <div class="input-group card border">
-                                <form action="{{route('search_Order')}}" method="get" >
+                            <div class="input-group">
+                                <form action="{{route('search_Order')}}" method="get">
                                     <input type="text" name="search" required class="form-control bg-light border-0 small" placeholder="Search Order ID..." aria-label="Search" aria-describedby="basic-addon2">
-
+                                   
                                 </form>
                             </div>
                             <br>
@@ -132,7 +132,7 @@
 
                                     </tbody>
                                 </table>
-                                {{$collections->links()}}
+                              
                             </div>
                         </div>
                     </div>

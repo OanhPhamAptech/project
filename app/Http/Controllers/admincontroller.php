@@ -31,7 +31,7 @@ class admincontroller extends Controller
             return redirect('/login');
         }
     }
-    //search function
+    //search product function
     public function search(request $request)
     {
         if (Auth::check()) {
@@ -379,12 +379,35 @@ class admincontroller extends Controller
                 ->join('orders', 'users.id', '=', 'orders.users_id')
                 ->select('*');
             $orders_ap = $orders_ap->orderBy('Status', 'asc')->get();
-            // dd($orders_ap );
+            // dd($orders_ap );           
             $collections = collect([$orders_pd, $orders_ap])->collapse();
             $collections = $collections->paginate(5);
+            //hiển thị số đơn đã duyệt và hủy
+            $orders_approved = order::where('status', '=', 1)->get();
+            $orders_cancelled = order::where('status', '=', 2)->get();
 
 
-            return view('/order', compact('orders_pd', 'orders_ap', 'collections'));
+            return view('/order', compact('orders_pd', 'orders_ap', 'collections', 'orders_approved', 'orders_cancelled'));
+        } else {
+            return redirect('/login');
+        }
+    }
+    //Search order 
+    public function search_Order(request $request)
+    {
+
+        if (Auth::check()) {
+            $search = $request->input('search');
+            $orders_pd = DB::table('orders')
+                ->where('users_id', '=', null)
+                ->where('orders.id', 'LIKE', "%{$search}%")->get();
+            $orders_ap = DB::table('users')
+                ->join('orders', 'users.id', '=', 'orders.users_id')
+                ->where('orders.id', 'LIKE', "%{$search}%")
+                ->get();
+            $collections = collect([$orders_pd, $orders_ap])->collapse();
+
+            return view('/Order_ID', compact('orders_pd', 'orders_ap', 'collections'));
         } else {
             return redirect('/login');
         }
@@ -416,14 +439,14 @@ class admincontroller extends Controller
                     ]);
                 $order = order::find($id);
                 // $order_details = $order->order_detail()->where('order_id', '=', $id)-> lấy array;
-                $order_details =order::find($id)->order_detail;            
+                $order_details = order::find($id)->order_detail;
                 foreach ($order_details as  $order_detail) {
-                    $color = color::where('id', '=', $order_detail->color_id)->first();                   
+                    $color = color::where('id', '=', $order_detail->color_id)->first();
                     $color = color::find($color->id)->update([
                         'Quantity' => $color->Quantity + $order_detail->quantity,
                     ]);
                 }
-             
+
                 DB::commit();
             } catch (\Exception $e) {
                 DB::rollBack();
@@ -448,6 +471,36 @@ class admincontroller extends Controller
             return redirect('/login');
         }
     }
+
+    // Quản lý doanh thu
+    public function revenu()
+    {
+        if (Auth::check()) {
+
+            $Revenus = DB::table('orders')->join('order_detail', 'orders.id', '=', 'order_detail.order_id')->where('status', '=', 1)->select(
+                DB::raw("DATE_FORMAT(orders.created_at, '%Y-%m') as month"),
+                DB::raw("sum(TotalPrice) as Total"),
+                "ProductName as ProductName",
+                DB::raw("sum(order_detail.quantity) as quantity")
+
+            )
+                ->groupBy("month")
+                ->groupBy("ProductName")
+                ->paginate(10);
+
+            $orders = DB::table('orders')->join('order_detail', 'orders.id', '=', 'order_detail.order_id')->where('status', '=', 1)->select(
+                DB::raw("DATE_FORMAT(orders.created_at, '%Y-%m') as month"),
+                DB::raw("sum(TotalPrice) as Total"),
+                DB::raw("count(Status) as Status"),
+            )
+                ->groupBy("month")
+                ->paginate(5);
+            return view('/revenu', compact('Revenus', 'orders'));
+        } else {
+            return redirect('/login');
+        }
+    }
+
     // hiển thị danh sách nhân viên 
     public function showuser()
     {

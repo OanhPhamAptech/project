@@ -34,7 +34,7 @@ Route::get('/shop', ShopComponent::class);
 Route::get('/shop/product_{size_id}', DetailsComponent::class)->name('product.details');
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
-Route::get('/searchProduct', SearchComponent::class)->name('product.search');
+Route::get('/searchProduct',SearchComponent::class)->name('product.search');
 Route::get('/category_{cat_id}', CategoryComponent::class)->name('product.category');
 Route::get('/product-category/{category_id}', ProductCategoryComponent::class)->name('product.product_category');
 
@@ -74,7 +74,7 @@ Route::delete('admin/delete_color/colorid={id}',[App\Http\Controllers\admincontr
 Route::delete('admin/delete_product/productid={id}',[App\Http\Controllers\admincontroller::class, 'delete_product'])->name('delete_product');
 
 
-//search function
+//search product function
 route::get('search',[App\Http\Controllers\admincontroller::class,'search'])->name('search');
 
 
@@ -85,8 +85,8 @@ Route::get('/admin/order', [App\Http\Controllers\admincontroller::class, 'showor
 Route::get('/admin/order_{id}', [App\Http\Controllers\admincontroller::class, 'showorder_detail']);
 Route::post('/admin/aprrove_order_{id}', [App\Http\Controllers\admincontroller::class, 'approve_order']);
 Route::post('/admin/cancel_order_{id}', [App\Http\Controllers\admincontroller::class, 'cancel_order']);
-
-
+//search Order ID function
+route::get('search_Order',[App\Http\Controllers\admincontroller::class,'search_Order'])->name('search_Order');
 
 //controller cho user
 //show user list, if level 1 -> can access
@@ -103,3 +103,5 @@ Route::patch('/admin/edit_user/{id}', [App\Http\Controllers\admincontroller::cla
 Route::delete('/admin/delete_user/{id}', [App\Http\Controllers\admincontroller::class, 'delete_user'])->middleware('CheckLogin')->name('delete.user');
 
 
+// Quản lý doanh thu
+Route::get('/admin/revenu', [App\Http\Controllers\admincontroller::class, 'revenu'])->name('revenu');
