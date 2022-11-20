@@ -88,7 +88,7 @@
                                 Brand <br>
                                 <input type="text" name="CatName" disabled class="table-bordered" value="{{$cat->CatName}}"> <br>
                                 Product Description <br>
-                                <textarea type="text" name="ProductDescription" required class="table-bordered" rows="5" cols="60">{{$products->ProductDescription}}</textarea><br>
+                                <textarea id="description" type="text" name="ProductDescription" required class="table-bordered" rows="5" cols="60">{{$products->ProductDescription}}</textarea><br>
                                 <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
                             </form>
 
@@ -121,5 +121,10 @@
     @include('admin_tpl/logout_modal')
 
 </body>
+
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('description');
+</script>
 
 </html>

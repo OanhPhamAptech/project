@@ -98,7 +98,7 @@
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
-                  {{$product->ProductDescription}}
+                {!! $product->ProductDescription !!}
                 </div>
                 <div class="tab-content-item" id="review">
                   <div class="wrap-review-form">
