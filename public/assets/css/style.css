@@ -1158,19 +1158,34 @@ a:focus {
 .wrap-product-detail .detail-media .product-gallery {
   display: inline-block;
 }
+
+.wrap-product-detail .detail-media .product-gallery .owl-nav {
+display: none;
+}
+
+.wrap-product-detail .detail-media .product-gallery .flex-direction-nav {
+  display: none;
+}
+@media (min-width:1200px){
+  .advance-info { 
+    padding-top: 200px;
+  }
+}
+
 .wrap-product-detail .detail-media ul {
   list-style: none;
   padding: 0;
 }
 .wrap-product-detail .detail-media ul li {
   max-width: 100%;
-  height: 470px;
+  /* height: 470px; */
   margin-right: 0px;
   float: left;
 }
 .wrap-product-detail .detail-media ul li img {
   max-width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .wrap-product-detail .detail-info {
   display: inline-block;
@@ -1366,6 +1381,21 @@ a:focus {
   line-height: 20px;
   margin-bottom: 20px;
 }
+
+.wrap-product-detail .advance-info .tab-contents .tab-content-item p textarea {
+  width: 100%;
+}
+
+.wrap-product-detail .advance-info .tab-contents .tab-content-item p input#submit {
+  background: #3b4a6b;
+  border-color: #3b4a6b;
+  color: white;
+}
+
+.wrap-product-detail .advance-info .tab-contents .tab-content-item p input#submit:hover {
+  opacity: 0.8;
+}
+
 .wrap-product-detail .advance-info .tab-contents .tab-content-item #comments .woocommerce-Reviews-title {
   font-size: 15px;
   font-weight: 600;
@@ -1414,12 +1444,20 @@ a:focus {
   display: inline-block;
   width: 100%;
 }
+
+.wrap-product-detail .advance-info .tab-contents .tab-content-item #review_form_wrapper #review_form #respond #commentform {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .wrap-product-detail .advance-info .tab-contents .tab-content-item #review_form_wrapper #review_form .comment-form p > label {
   display: block;
   font-size: 14px;
   color: #666666;
   font-weight: 400;
 }
+
+
 .wrap-product-detail .advance-info .tab-contents .tab-content-item #review_form_wrapper #review_form .comment-form p .form-submit input[type=submit] {
   max-width: 115px;
   border: 0;
@@ -1467,6 +1505,11 @@ a:focus {
   margin: 0;
   padding: 0 2px;
 }
+
+.wrap-product-detail .advance-info .tab-contents .tab-content-item #review_form_wrapper #review_form .comment-form .comment-form-rating .stars input {
+  display: none;
+}
+
 .wrap-product-detail .advance-info .tab-contents .tab-content-item #review_form_wrapper #review_form .comment-form .comment-form-rating .stars label::before {
   content: "\f005";
   font-family: FontAwesome;
@@ -1589,4 +1632,13 @@ a:focus {
 .product-category .categories-widget .widget-content .list-category .category-item .cat-link#clear:hover {
   background: rgba(255, 0, 0, 0.9);
   color: #ffffff;
+}
+
+.image-product-index {
+  height: 223px;
+}
+
+.image-product-index img {
+  height: 100%;
+  object-fit: contain;
 }

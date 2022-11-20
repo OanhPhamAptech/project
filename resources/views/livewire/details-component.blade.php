@@ -98,8 +98,15 @@
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
-                {!! $product->ProductDescription !!}
+                  {!! $product->ProductDescription !!}
                 </div>
+              </div>
+            </div>
+            <div class="advance-info">
+              <div class="tab-control normal">
+                <a href="#description" class="tab-control-item active">Comments</a>
+              </div>
+              <div class="tab-contents">
                 <div class="tab-content-item" id="review">
                   <div class="wrap-review-form">
                     <div id="comments">

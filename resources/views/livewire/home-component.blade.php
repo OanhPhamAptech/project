@@ -124,7 +124,9 @@
           @foreach($productsApple as $productApple)
           <div class="mx-3 my-3 box shadow productBox item">
             <a href="{{route('product.details',['size_id' => $productApple->id])}}">
-              <img src="{{ $productApple->Featured }}" alt="" class="img-fluid">
+              <div class="image-product-index">
+                <img src="{{ $productApple->Featured }}" alt="" class="img-fluid">
+              </div>
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3"> {{ $productApple->ProductName }} {{ $productApple->SizeName }}</h6>
                 <h6>Price: <span>$ {{ $productApple->Price }}</span></h6>
@@ -150,7 +152,9 @@
           @foreach($productsSamsung as $productSamsung)
           <div class="mx-3 my-3 box shadow productBox item">
             <a href="{{route('product.details',['size_id' => $productSamsung->id])}}">
-              <img src="{{ $productSamsung->Featured }}" alt="" class="img-fluid">
+              <div class="image-product-index">
+                <img src="{{ $productSamsung->Featured }}" alt="" class="img-fluid">
+              </div>
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3">
                   {{ $productSamsung->ProductName }} {{ $productSamsung->SizeName }}
@@ -185,7 +189,9 @@
           @foreach($productsXiaomi as $productXiaomi)
           <div class="mx-3 my-3 box shadow productBox item">
             <a href="{{route('product.details',['size_id' => $productXiaomi->id])}}">
-              <img src="{{ $productXiaomi->Featured }}" alt="" class="img-fluid">
+              <div class="image-product-index">
+                <img src="{{ $productXiaomi->Featured }}" alt="" class="img-fluid">
+              </div>
               <div class="detail-box d-flex flex-column justify-content-center align-items-center">
                 <h6 class="fs-6 mt-3">
                   {{ $productXiaomi->ProductName }} {{ $productXiaomi->SizeName }}
