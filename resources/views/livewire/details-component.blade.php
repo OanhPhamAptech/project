@@ -4,8 +4,8 @@
     <div class="container">
       <div class="wrap-breadcrumb">
         <ul>
-          <li class="item-link"><a href="/" class="link">home</a></li>
-          <li class="item-link"><a href="/shop" class="link">Product</a></li>
+          <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+          <li class="item-link"><a href="/shop" class="link">Sản phẩm</a></li>
           <li class="item-link"><span>{{$product->ProductName}} {{$size->SizeName}}</span></li>
         </ul>
       </div>
@@ -63,21 +63,21 @@
                 <span class="fa fa-star" style="color:#efce4a"></span>
                 <span class="fa fa-star" style="color:#efce4a"></span>
                 @endif
-                <a href="#" class="count-review">({{ $commentsCount }} review)</a>
+                <a href="#" class="count-review">({{ $commentsCount }} đánh giá)</a>
               </div>
-              <h2 class="product-name"> Name: {{$product->ProductName}} {{$size->SizeName}}</h2>
+              <h2 class="product-name"> Tên: {{$product->ProductName}} {{$size->SizeName}}</h2>
               <div class="wrap-social">
                 <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
               </div>
               <div class="wrap-price">
-                <span class="product-price">Price: ${{number_format($size->Price)}} </span>
+                <span class="product-price">Giá: ${{number_format($size->Price)}} </span>
               </div>
               <div class="stock-info in-stock">
-                <p class="color">Color: <b></b></p>
+                <p class="color">Màu: <b></b></p>
 
                 <div class="color-input">
                   <select wire:model.lazy="ColorID" id="color-option" class="form-select" aria-label="Default select example">
-                    <option value="">Please select a Color</option>
+                    <option value="">Chọn màu</option>
                     @foreach ($colors as $color)
                     <option value="{{$color->id}}" required>{{$color->ColorName}}</option>
                     @endforeach
@@ -89,12 +89,12 @@
 
               </div>
               <div class="wrap-butons">
-                <a href="/cart" class="btn add-to-cart" wire:click.prevent="store">Add to Cart</a>
+                <a href="/cart" class="btn add-to-cart" wire:click.prevent="store">Thêm</a>
               </div>
             </div>
             <div class="advance-info">
               <div class="tab-control normal">
-                <a href="#description" class="tab-control-item active">description</a>
+                <a href="#description" class="tab-control-item active">Mô tả</a>
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item active" id="description">
@@ -104,13 +104,13 @@
             </div>
             <div class="advance-info">
               <div class="tab-control normal">
-                <a href="#description" class="tab-control-item active">Comments</a>
+                <a href="#description" class="tab-control-item active">Nhận xét</a>
               </div>
               <div class="tab-contents">
                 <div class="tab-content-item" id="review">
                   <div class="wrap-review-form">
                     <div id="comments">
-                      <h2 class="woocommerce-Reviews-title">Review for <span>{{$product->ProductName}}</span></h2>
+                      <h2 class="woocommerce-Reviews-title">Đánh giá cho <span>{{$product->ProductName}}</span></h2>
                       <ol class="commentlist">
                         <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
                           <div id="comment-20" class="comment_container d-flex flex-column gap-2">
@@ -146,10 +146,10 @@
 
                           <form action="#" method="post" id="commentform" class="comment-form" novalidate="" wire:submit.prevent="saveComment">
                             <p class="comment-notes">
-                              <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+                              <span id="email-notes">Địa chỉ email của bạn sẽ không được công bố.</span> Các trường bắt buộc được đánh dấu<span class="required">*</span>
                             </p>
                             <div class="comment-form-rating">
-                              <span>Your rating</span>
+                              <span>Xếp hạn của bạn</span>
                               <p class="stars">
                                 <label for="rated-1"></label>
                                 <input type="radio" id="rated-1" name="rating" value="1" wire:model="vote">
@@ -164,7 +164,7 @@
                               </p>
                             </div>
                             <p class="comment-form-author">
-                              <label for="author">Name <span class="required">*</span></label>
+                              <label for="author">Họ và tên <span class="required">*</span></label>
                               <input id="author" name="author" type="text" value="" wire:model="name">
                               @error('name') <span>{{ $message }}</span> @enderror
                             </p>
@@ -174,13 +174,13 @@
                               @error('email') <span>{{ $message }}</span> @enderror
                             </p>
                             <p class="comment-form-comment">
-                              <label for="comment">Your review <span class="required">*</span>
+                              <label for="comment">Đánh giá của bạn <span class="required">*</span>
                               </label>
                               <textarea id="comment" name="content" cols="45" rows="8" wire:model="content"></textarea>
                               @error('content') <span>{{ $message }}</span> @enderror
                             </p>
                             <p class="form-submit">
-                              <input name="submit" type="submit" id="submit" class="submit btn" value="Submit">
+                              <input name="submit" type="submit" id="submit" class="submit btn" value="Gửi">
                             </p>
                           </form>
 
@@ -205,8 +205,8 @@
                   <a class="link-to-service" href="#">
                     <i class="fa fa-truck" aria-hidden="true"></i>
                     <div class="right-content">
-                      <b class="title">Free Shipping</b>
-                      <p><span class="subtitle">On Oder Over $99</span></p>
+                      <b class="title">Miễn phí vận chuyển</b>
+                      <p><span class="subtitle">Cho đơn hàng trên 2,000,000 VNĐ</span></p>
                       <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                     </div>
                   </a>
@@ -216,8 +216,8 @@
                   <a class="link-to-service" href="#">
                     <i class="fa fa-gift" aria-hidden="true"></i>
                     <div class="right-content">
-                      <b class="title">Special Offer</b>
-                      <p><span class="subtitle">Get a gift!</span></p>
+                      <b class="title">Đề nghị đặc biệt</b>
+                      <p><span class="subtitle">Nhận 1 phần quà!</span></p>
                       <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                     </div>
                   </a>
@@ -227,8 +227,8 @@
                   <a class="link-to-service" href="#">
                     <i class="fa fa-reply" aria-hidden="true"></i>
                     <div class="right-content">
-                      <b class="title">Order Return</b>
-                      <p><span class="subtitle">Return within 7 days</span></p>
+                      <b class="title">Dịch vụ trả hàng</b>
+                      <p><span class="subtitle">Trả hàng trong 7 ngày</span></p>
                       <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                     </div>
                   </a>
@@ -238,7 +238,7 @@
           </div><!-- Categories widget-->
 
           <div class="widget mercado-widget widget-product">
-            <h2 class="widget-title">Popular Products</h2>
+            <h2 class="widget-title">Sản phẩm nổi tiếng</h2>
             <div class="widget-content">
               <ul class="products">
                 @foreach ($popular_products as $p_product)
@@ -265,7 +265,7 @@
 
         <div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="wrap-show-advance-info-box style-1 box-in-site">
-            <h3 class="title-box">Related Products</h3>
+            <h3 class="title-box">Sản phẩm liên quan</h3>
             <div class="wrap-products">
               <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}'>
 
@@ -282,7 +282,7 @@
                   <div class="product-info">
                     <a href="{{route('product.details',['size_id' => $r_product->id])}}" class="product-name">{{$r_product->ProductName}} {{$r_product->SizeName}}</a>
                     <div class="wrap-price">
-                      <p class="product-price">Price: ${{$r_product->Price}}</p>
+                      <p class="product-price">Giá: {{number_format($r_product->Price)}} VNĐ</p>
                     </div>
                   </div>
                 </div>

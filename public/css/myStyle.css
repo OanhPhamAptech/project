@@ -19,11 +19,11 @@
 
 }
 
-.productBox {
+.productBox{
     transition-duration: 0.7s;
 }
 
-.productBox:hover {
+.productBox:hover{
     transform: scale(105%);
     transition: 0.7s;
 }

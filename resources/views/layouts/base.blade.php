@@ -54,28 +54,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/" title="Home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link fs-6" href="/" title="Home">Trang chủ<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <div class="dropdown">
-              <a href="/shop" class="btn">Product</a>
-              <ul class="dropdown-menu">
-
-              </ul>
-            </div>
+              <a href="/shop" class="nav-link fs-6">Sản phẩm</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact"> About </a>
+            <a class="nav-link fs-6" href="#contact">Về chúng tôi </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact Us</a>
+            <a class="nav-link fs-6" href="#contact">Liên hệ</a>
           </li>
         </ul>
 
         <div class="user_option-box">
           <!-- search -->
           <form action="searchProduct" method="get" class="d-flex" role="search">
-            <input class="form-control me-2" type="text" name="search" value="{{request('search')}}" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="text" name="search" value="{{request('search')}}" placeholder="Tìm kiếm" aria-label="Search">
             <!-- <a href="" class="d-flex align-items-center">
               <i class="fa fa-search" aria-hidden="true"></i>
             </a> -->
@@ -123,12 +118,11 @@
     <div class="row">
       <div class="col-md-6 col-lg-3 footer-col">
         <div class="footer_detail">
-          <h4>
-            About
+          <h4 class="text-uppercase">
+            Về chúng tôi
           </h4>
           <p>
-            Necessary, making this the first true generator on the Internet.
-            It uses a dictionary of over 200 Latin words, combined with
+          Chúng tôi là web bán đồng hồ thông minh với tên gọi Timeups.
           </p>
           <div class="footer_social">
             <a href="">
@@ -148,20 +142,20 @@
       </div>
       <div class="col-md-6 col-lg-3 footer-col">
         <div class="footer_contact">
-          <h4>
-            Reach at..
+          <h4 class="text-uppercase">
+            Liên hệ
           </h4>
           <div class="contact_link_box" id="contact">
             <a href="">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
-                Location
+                Địa chỉ
               </span>
             </a>
             <a href="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call +01 1234567890
+                Gọi +01 1234567890
               </span>
             </a>
             <a href="">
@@ -175,13 +169,13 @@
       </div>
       <div class="col-md-6 col-lg-3 footer-col">
         <div class="footer_contact">
-          <h4>
-            Subscribe
+          <h4 class="text-uppercase">
+            Đăng ký
           </h4>
           <form action="#">
-            <input type="text" placeholder="Enter email" />
+            <input type="text" placeholder="Email" />
             <button type="submit">
-              Subscribe
+              Đăng ký
             </button>
           </form>
         </div>
