@@ -1642,3 +1642,18 @@ display: none;
   height: 100%;
   object-fit: contain;
 }
+
+.search-component {
+  min-height: 60vh;
+  
+}
+
+.search-component .error-search {
+  align-items: center;
+  background: lightblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  margin-top: 100px;
+}

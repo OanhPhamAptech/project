@@ -71,24 +71,17 @@
             <a class="nav-link" href="#contact">Contact Us</a>
           </li>
         </ul>
-        
+
         <div class="user_option-box">
           <!-- search -->
-          <form action="{{route('product.search')}}" method="get" class="d-flex" role="search" >
-            @csrf
-
-            <input class="form-control me-2" type="text" name="search" wire:model="search" placeholder="Search" aria-label="Search">
+          <form action="searchProduct" method="get" class="d-flex" role="search">
+            <input class="form-control me-2" type="text" name="search" value="{{request('search')}}" placeholder="Search" aria-label="Search">
             <!-- <a href="" class="d-flex align-items-center">
               <i class="fa fa-search" aria-hidden="true"></i>
             </a> -->
-           
-    
-            <button class="btn btn-primary" type="submit" wire:submit.prevent="searchProduct()"><i class="fa fa-search" aria-hidden="true"></i></button>
-           
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
-          
-       
-        
+
           <a href="/checkout">
             <i class="fa fa-user" aria-hidden="true"></i>
           </a>

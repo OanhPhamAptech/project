@@ -1,3 +1,6 @@
+
+<div class="search-component">
+<div class="container">
 @if(isset($product))
 <div class=" row">
     @foreach ($product as $product)
@@ -19,10 +22,12 @@
         </a>
       </div>
     </div>
-    @endforeach
-  </div>
+  @endforeach
+</div>
 @elseif(isset($error))
 <p>{{$this->error}}</p>
 @else
-<p>No data to be shown</p>
+<p class="error-search">No data to be shown</p>
 @endif
+</div>
+</div>
