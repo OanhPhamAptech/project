@@ -3,14 +3,14 @@
     <!-- widget categoris -->
     <div class="widget categories-widget">
       <div>
-        <h3>Brand: {{$category_name->CatName}}</h3>
+        <h3>Hãng: {{$category_name->CatName}}</h3>
       </div>
       <div class="widget-content">
         <ul class="list-category">
           @foreach ($category as $category)
           <li class="category-item"><a href="{{route('product.product_category',['category_id'=>$category->id])}}" class="cat-link">{{$category->CatName}}</a></li>
           @endforeach
-          <li class="category-item"><a href="/shop" class="cat-link" id="clear">Clear</a></li>
+          <li class="category-item"><a href="/shop" class="cat-link" id="clear">Xóa</a></li>
         </ul>
       </div>
     </div>
