@@ -21,15 +21,14 @@
           <h3 class="box-title">Tên sản phẩm</h3>
           <ul class="products-cart">
             @foreach (Cart::Content() as $item)
-            <li class="pr-cart-item">
+            <li class="pr-cart-item d-flex align-items-center">
               <div class="product-image">
                 <figure><img src="{{$item->options->image}}" alt="img"> </figure>               
               </div>
-                         
-              <div class="product-name">
+              <div class="product-name d-flex flex-column">
                 <a class="link-to-product" href="">{{$item->name}}</a>
-                <p>Màu : {{$item->options->color}}</p>
-                <p>Kích cỡ : {{$item->options->size}}</p>
+                <span>Màu : {{$item->options->color}}</span>
+                <span>Kích cỡ : {{$item->options->size}}</span>
               </div>
               <div class="d-none  price-field produtc-price">
                 <p class="price">{{number_format($item->price)}} VNĐ</p>
@@ -42,7 +41,7 @@
                 </div>
               </div>
               <div class="price-field sub-total">
-                <p class="price">${{$item->subtotal}}</p>
+                <p class="price">{{number_format($item->subtotal)}} VNĐ</p>
               </div>
               <div class="delete">
                 <a href="#" class="btn btn-delete" title="" wire:click.prevent="removeItem('{{$item->rowId}}')">
