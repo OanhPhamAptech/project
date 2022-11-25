@@ -84,9 +84,9 @@
                                 @method('patch')
                                 @csrf
                                 Tên <br>
-                                <input type="text" name="name" required class="table-bordered" value="{{ $users ->name}}"><br>
+                                <input type="text" name="name" required class="table-bordered mb-3" value="{{ $users ->name}}"><br>
                                 Email <br>
-                                <input type="email" name="email" required class="table-bordered" value="{{ $users ->email}}"><br>
+                                <input type="email" name="email" required class="table-bordered mb-3" value="{{ $users ->email}}"><br>
                                 <input type="submit" name="submit" value="Sửa" class="btn btn-primary mt-2">
                             </form>
 

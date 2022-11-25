@@ -84,12 +84,12 @@
                               
                                 @csrf
                                 Tên sản phẩm <br>
-                                <input type="text" name="ProductName" required class="table-bordered" value="{{$products->ProductName}}"><br> <br>
-                                Brand <br>
-                                <input type="text" name="CatName" disabled class="table-bordered" value="{{$cat->CatName}}"> <br>
-                                Product Description <br>
-                                <textarea id="description" type="text" name="ProductDescription" required class="table-bordered" rows="5" cols="60">{{$products->ProductDescription}}</textarea><br>
-                                <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
+                                <input type="text" name="ProductName" required class="table-bordered mb-3" value="{{$products->ProductName}}"><br>
+                                Hãng<br>
+                                <input type="text" name="CatName" disabled class="table-bordered mb-3" value="{{$cat->CatName}}"> <br>
+                                Mô tả sản phẩm<br>
+                                <textarea id="description" type="text" name="ProductDescription" required class="table-bordered mb-3" rows="5" cols="60">{{$products->ProductDescription}}</textarea><br>
+                                <input type="submit" name="submit" value="Lưu" class="btn btn-primary">
                             </form>
 
                         </div>

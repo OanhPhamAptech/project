@@ -87,21 +87,21 @@
                                 @csrf
 
                                 Tên <br>
-                                <input type="text" name="name" required class="table-bordered" autofocus><br>
+                                <input type="text" name="name" required class="table-bordered mb-3" autofocus><br>
                                 Email <br>
-                                <input type="email" name="email" required class="table-bordered"><br><br>
-                                <div>
+                                <input type="email" name="email" required class="table-bordered mb-3"><br>
+                                <div class="mb-2">
                                     <label for="level">Mức độ</label>
                                     <select name="level" class="table-bordered" id="level" onChange="select()">
                                         <option value="1">1</option>
                                         <option value="0">0</option>
                                     </select>
-                                </div><br>
+                                </div>
 
                                 <label for="role">Vai trò</label> <br>
-                                <input type="text" name="role" class="table-bordered" id="role" disabled>
+                                <input type="text" name="role" class="table-bordered mb-3" id="role" disabled>
 
-                                <br><br>
+                                <br>
                                 Mật khẩu<br>
                                 <input type="password" name="password" required class="table-bordered"><br><br>
 

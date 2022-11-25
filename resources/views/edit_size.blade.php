@@ -84,28 +84,28 @@
                                @method('patch')
                                 @csrf
                                 Tên sản phẩm <br>
-                                <input type="text" name="ProductName" required class="table-bordered" disabled value="{{$products->ProductName}}"><br> <br>
-                                Brand <br>
-                                <input type="text" name="CatName" disabled class="table-bordered" value="{{$cat->CatName}}"> <br>
-                                Product Description <br>
-                                <textarea disabled type="text" name="ProductDescription" required class="table-bordered" rows="5" cols="60">{{$sizes->product->ProductDescription}}</textarea><br>
-                                Product Picture <br> <br>
-                                <input type="file" name="image" class="table-bordered"><br> <br>
+                                <input type="text" name="ProductName" required class="table-bordered mb-3" disabled value="{{$products->ProductName}}"><br>
+                                Hãng<br>
+                                <input class="mb-3" type="text" name="CatName" disabled class="table-bordered" value="{{$cat->CatName}}"> <br>
+                                Mô tả<br>
+                                <textarea disabled type="text" name="ProductDescription" required class="table-bordered mb-3" rows="5" cols="60">{{$sizes->product->ProductDescription}}</textarea><br>
+                                Ảnh<br>
+                                <input type="file" name="image" class="table-bordered mb-3"><br>
                                 @error('image')
                                 <span class="text-danger">Vui lòng chỉ chọn file ảnh có dung lượng nhỏ hơn 1 MB</span> <br> <br>
                                 @enderror
-                                Size <br>
-                                <input type="text" name="SizeName" required class="table-bordered" Value="{{$sizes->SizeName}}"><br>
-                                Size Description<br>
-                                <input type="text" name="SizeDescription" required class="table-bordered" value="{{$sizes->SizeDescription}}"><br>
-                                Price <br>
-                                <input type="text" name="Price" required class="table-bordered" value="{{$sizes->Price}}"><br>
-                                Color <br>
-                                <input type="text" name="ColorName" required class="table-bordered" value="{{$colors->ColorName}}"><br>
-                                Quantity <br>
-                                <input type="number" name="Quantity" required class="table-bordered" value="{{$colors->Quantity}}"><br>
+                                Kích cỡ <br>
+                                <input type="text" name="SizeName" required class="table-bordered mb-3" Value="{{$sizes->SizeName}}"><br>
+                                Mã kích cỡ<br>
+                                <input type="text" name="SizeDescription" required class="table-bordered mb-3" value="{{$sizes->SizeDescription}}"><br>
+                                Giá<br>
+                                <input type="text" name="Price" required class="table-bordered mb-3" value="{{$sizes->Price}}"><br>
+                                Màu<br>
+                                <input type="text" name="ColorName" required class="table-bordered mb-3" value="{{$colors->ColorName}}"><br>
+                                Số lượng<br>
+                                <input type="number" name="Quantity" required class="table-bordered mb-3" value="{{$colors->Quantity}}"><br>
 
-                                <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
+                                <input type="submit" name="submit" value="Lưu" class="btn btn-primary">
                             </form>
 
                         </div>

@@ -84,41 +84,41 @@
                                 @method('patch')
                                 @csrf
                                 Tên sản phẩm <br>
-                                <input type="text" name="ProductName" required class="table-bordered"><br> <br>
+                                <input type="text" name="ProductName" required class="table-bordered mb-3"><br>
                                 <div>
-                                    <label for="CatName">Brand </label>
+                                    <label for="CatName">Hãng</label>
                                     <select name="CatName" class="table-bordered" id="CatName" onChange="updateCat()">
                                         <option value="Apple">Apple</option>
                                         <option value="Samsung">Samsung</option>
                                         <option value="Xiaomi">Xiaomi</option>
                                     </select>
-                                </div> 
-                                <input type="text" name="category_id" id="category_id" hidden><br>                                
-                                Product Picture <br> <br>                                
-                                <input type="file" name="image" required class="table-bordered"><br> <br>
+                                </div>
+                                Mô tả <br>
+                                <textarea type="text" name="ProductDescription" rows="5" cols="60" required class="table-bordered"> </textarea><br>
+                                Kích cỡ<br>
+                                <input type="text" name="SizeName" required class="table-bordered mb-3"><br>
+                                Mã kích cỡ<br>
+                                <input type="text" name="SizeDescription" required class="table-bordered mb-3"><br>
+                                Giá<br>
+                                <input type="text" name="Price" required class="table-bordered mb-3"><br>
+                                Màu<br>
+                                <input type="text" name="ColorName" required class="table-bordered mb-3"><br>
+                                Số lượng <br>
+                                <input type="number" name="Quantity" required class="table-bordered mb-3"><br>
+                                Ảnh đại diện<br>
+                                <input type="file" name="Featured" required class="table-bordered mb-3">
                                 @error('image')
-                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br> <br>
-                                @enderror                                
-                                Product Description <br>
-                                <textarea type="text" name="ProductDescription"  rows="5" cols="60" required class="table-bordered"> </textarea><br>
-                                Size <br>
-                                <input type="text" name="SizeName" required class="table-bordered"><br>
-                                Size Description<br>
-                                <input type="text" name="SizeDescription" required class="table-bordered"><br>
-                                Price <br>
-                                <input type="text" name="Price" required class="table-bordered"><br>
-                                Color <br>
-                                <input type="text" name="ColorName" required class="table-bordered"><br>
-                                Quantity <br>
-                                <input type="number" name="Quantity" required class="table-bordered"><br>
-                                Feature <br>
-                                <input type="file" name="Featured" required class="table-bordered"><br> <br>
+                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br>
+                                @enderror
+                                <input type="text" name="category_id" id="category_id" hidden><br>
+                                Ảnh khác<br>
+                                <input type="file" name="image" required class="table-bordered mb-3"><br>
                                 @error('image')
-                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br> <br>
-                                @enderror                                
+                                <span class="text-danger">Vui lòng chọn file nhỏ hơn 1 MB</span> <br>
+                                @enderror
 
 
-                                <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
+                                <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
                             </form>
 
                         </div>
@@ -151,21 +151,19 @@
 
 
     <script type="text/javascript">
-
         function updateCat() {
             var selected = document.getElementById('CatName');
             var option = selected.options[selected.selectedIndex].value;
             if (option == "Apple") {
                 document.getElementById('category_id').value = "1";
-            }
-            else if (option == "Samsung") {
+            } else if (option == "Samsung") {
                 document.getElementById('category_id').value = "2";
             } else {
                 document.getElementById('category_id').value = "3 ";
             }
             console.log(document.getElementById('category_id').value);
         }
-       
+
         updateCat();
     </script>
 

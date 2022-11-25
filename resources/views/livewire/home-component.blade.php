@@ -255,9 +255,6 @@
               Chúng tôi là web bán đồng hồ thông minh với tên gọi Timeups.<br>
               Ở đây bạn có thể tìm thấy các mẫu mã đồng hồ mới và đang hot trên thị trường với mức giá tiêu chuẩn.
             </p>
-            <a href="">
-              Tìm hiểu thêm
-            </a>
           </div>
         </div>
       </div>

@@ -75,7 +75,7 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Chi tiết đơn hàng </h1>
                     <div style="overflow:auto;">
-                        <a href="/admin/order" class="btn mr-2" style="float: right; background-color: #3b4a6b; color: rgba(255,255,255,.8)"> Back </a>
+                        <a href="/admin/order" class="btn mr-2" style="float: right; background-color: #3b4a6b; color: rgba(255,255,255,.8)"> Quay lại </a>
                     </div>
                     <!-- Product list -->
                     <div class="card shadow mt-4 mb-4 p-3">
@@ -83,13 +83,13 @@
                         <!-- order list -->
                         <div class="d-flex">
                             <div class="col-sm-6">
-                                <p>Order ID : {{$order->id}}</p>
+                                <p>Mã đơn hàng : {{$order->id}}</p>
                                 @if($order->Status==0)
-                                <p class = "text-primary">Status :  Chưa Duyệt</p>
+                                <p class = "text-primary">Trạng thái : Chưa Duyệt</p>
                                 @elseif($order->Status==1)
-                                <p class = "text-success">Status : Đã duyệt</p>
+                                <p class = "text-success">Trạng thái : Đã duyệt</p>
                                 @elseif($order->Status==2)
-                                <p class = "text-danger">Status : Đã hủy</p>
+                                <p class = "text-danger">Trạng thái : Đã hủy</p>
                                 @endif
                                 <p>Tổng giá trị hóa đơn : {{$order->Total}}</p>
                             </div>
@@ -109,12 +109,12 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Product Name</th>                                             
-                                                <th>Price</th>
-                                                <th>Size</th>
-                                                <th>Color</th>
-                                                <th>Quantity</th>
-                                                <th>Total Price</th>
+                                                <th>Sản phẩm</th>                                             
+                                                <th>Giá</th>
+                                                <th>Kích cỡ</th>
+                                                <th>Màu</th>
+                                                <th>Số lượng</th>
+                                                <th>Tổng</th>
 
                                             </tr>
                                         </thead>

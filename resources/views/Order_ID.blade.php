@@ -82,7 +82,7 @@
                         <div class="card-body">
                             <div class="input-group">
                                 <form action="{{route('search_Order')}}" method="get">
-                                    <input type="text" name="search" required class="form-control bg-light border-0 small" placeholder="Search Order ID..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <input type="text" name="search" required class="form-control bg-light border-0 small" placeholder="Tìm kiếm mã đơn hàng" aria-label="Search" aria-describedby="basic-addon2">
                                    
                                 </form>
                             </div>
@@ -91,13 +91,10 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
-                                            <th>Order ID</th>
-                                            <th>Total Amount</th>
-                                            <th>Order Date</th>
-                                            <th width="25%">Status</th>
-
-
+                                            <th>Mã đơn hàng</th>
+                                            <th>Tỏng</th>
+                                            <th>Ngày đặt hàng</th>
+                                            <th width="25%">Trạng thái</th>
                                         </tr>
                                     </thead>
 
@@ -105,7 +102,6 @@
                                         @foreach($collections as $collection)
 
                                         <tr>
-                                            <td></td>
                                             <td class=" justify-content-center"> <a href="/admin/order_{{$collection->id}}" class="p-1 m-1">{{$collection->id}} </a> </td>
                                             <td>{{$collection->Total}}</td>
                                             <td>{{$collection->created_at}}</td>

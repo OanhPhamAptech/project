@@ -69,7 +69,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Dashboard -->
-                   
+
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Danh sách sản phẩm</h1>
                     <div style="overflow:auto;">
@@ -90,30 +90,28 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
-                                            <th>Product Name</th>
-                                            <th>Brand</th>
-                                            <th>Description</th>
-                                            <th>Product Status</th>
-                                            <th>Feature</th>
+                                            <th>Ảnh</th>
+                                            <th>Sản phẩm</th>
+                                            <th>Hãng</th>
+                                            <th>Mô tả</th>
+                                            <th width="7%">Trạng thái</th>
                                             <th width="12%"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($products as $product)
                                         <tr>
-                                            <td></td>
+                                            <td><img src="{{$product->Featured}}" style="height:60px; width:100px;"></td>
                                             <td><a href="admin/product_detail/{{$product->id}}">{{$product->ProductName}}</a></td>
                                             <td>{{$product->CatName}}</td>
                                             <td>{{$product->ProductDescription}}</td>
-                                            <td>{{$product->ProductStatus}} </td>
-                                            <td><img src="{{$product->Featured}}" style="height:60px; width:100px;"></td>
+                                            <td class="text-center">{{$product->ProductStatus}} </td>
                                             <td>
                                                 <a class="p-1 m-1 btn btn-primary btn-block btn-sm" href="admin/edit_product/productid={{$product->id}}">Sửa</a>
                                                 <form action="/admin/delete_product/productid={{$product->id}}" method="post" onsubmit="return confirm('Bạn muốn xóa dòng dữ liệu này?')">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type ="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
+                                                    <button type="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
                                                 </form>
                                                 <a class="p-1 m-1 btn btn-secondary btn-block btn-sm" href="admin/add_size/{{$product->id}}">Thêm size</a>
                                             </td>

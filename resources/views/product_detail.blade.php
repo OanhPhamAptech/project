@@ -69,7 +69,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Dashboard -->
-                    
+
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Danh sách sản phẩm</h1>
 
@@ -89,17 +89,14 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.1</th>
-                                            <th>Product Name</th>
-                                            <th>Product Picture</th>
-                                            <th>Size Name</th>
-                                            <th>Size Description</th>
-                                            <th>Color</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Status</th>
-
-
+                                            <th>Ảnh</th>
+                                            <th>Sản phẩm</th>
+                                            <th>Kích cỡ</th>
+                                            <th>Mã kích cỡ</th>
+                                            <th>Màu</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
 
@@ -108,9 +105,8 @@
                                         @foreach ($colors as $color)
 
                                         <tr>
-                                            <td></td>
-                                            <td>{{$color->size->product->ProductName}}</td>
                                             <td><img src="/{{$color->img->URL}}" alt="" style="height:60px; width:100px;"></td>
+                                            <td>{{$color->size->product->ProductName}}</td>
                                             <td>{{$color->size->SizeName}}</td>
                                             <td>{{$color->size->SizeDescription}}</td>
                                             <td>{{$color->ColorName}}</td>
@@ -124,7 +120,7 @@
                                                 <form action="/admin/delete_color/colorid={{$color->img->id}}" method="post" onsubmit="return confirm('Bạn muốn xóa dòng dữ liệu này?')">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type ="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
+                                                    <button type="submit" class="p-1 m-1 btn btn-danger btn-block btn-sm">Xóa</button>
                                                 </form>
                                                 <a class="p-1 m-1 btn btn-secondary btn-block btn-sm" href="/admin/add_color/sizeid={{$color->size->id}}">Thêm màu</a>
                                             </td>
