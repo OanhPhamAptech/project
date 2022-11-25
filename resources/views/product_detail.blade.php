@@ -89,7 +89,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
+                                            <th>No.1</th>
                                             <th>Product Name</th>
                                             <th>Product Picture</th>
                                             <th>Size Name</th>

@@ -87,7 +87,7 @@
                                 <input type="text" name="name" required class="table-bordered" value="{{ $users ->name}}"><br>
                                 Email <br>
                                 <input type="email" name="email" required class="table-bordered" value="{{ $users ->email}}"><br>
-                                <input type="submit" name="submit" value="Save" class="btn btn-primary mt-2">
+                                <input type="submit" name="submit" value="Sửa" class="btn btn-primary mt-2">
                             </form>
 
                         </div>

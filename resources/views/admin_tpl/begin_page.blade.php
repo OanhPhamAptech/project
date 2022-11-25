@@ -5,7 +5,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Orders</div>
+                                                Tổng đơn hàng</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$collections->total()}}</div>
                                         </div>
                                         <div class="col-auto">
@@ -21,7 +21,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                               Approved Orders</div>
+                                               Đơn hàng được duyệt</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$orders_approved ->count()}}</div>
                                         </div>
                                         <div class="col-auto">
@@ -37,7 +37,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                               Cancelled Orders</div>
+                                               Đơn hàng bị hủy</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$orders_cancelled ->count()}}</div>
                                         </div>
                                         <div class="col-auto">
@@ -53,7 +53,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pending Orders</div>
+                                                Xử lý</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$orders_pd->count()}}</div>
                                         </div>
                                         <div class="col-auto">

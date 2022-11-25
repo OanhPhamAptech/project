@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Login</title>
+    <title>Đăng nhập quản lý</title>
 
     <!-- Custom fonts for this template-->
     <script src="https://kit.fontawesome.com/c385b974ba.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
                                     <form class="user" method="POST" action="/login">
                                         @csrf
                                         <div class="form-group ">
-                                            <input id="email" type="email" class="form-control  form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus aria-describedby="emailHelp " placeholder="Enter Email Address... ">
+                                            <input id="email" type="email" class="form-control  form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus aria-describedby="emailHelp " placeholder="Nhập email">
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group ">
-                                            <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password ">
+                                            <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Nhập mật khẩu">
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -62,20 +62,20 @@
                                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                                     <label class="form-check-label" for="remember">
-                                                        {{ __('Remember Me') }}
+                                                        {{ __('Ghi nhớ') }}
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block ">
-                                            Login
+                                            Đăng nhập
                                         </button>
 
 
                                     </form>
 
                                     <div class="text-center ">
-                                        <a class="small " href="forgot-password.html ">Forgot Password?</a>
+                                        <a class="small " href="forgot-password.html ">Quên mật khẩu?</a>
                                     </div>
 
                                 </div>

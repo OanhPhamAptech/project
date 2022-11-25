@@ -12,7 +12,7 @@
      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="{{route('search')}}" method="get">
          <div class="input-group">
 
-             <input type="text" id="search" name="search" required class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+             <input type="text" id="search" name="search" required class="form-control bg-light border-0 small" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="basic-addon2">
              <button class="btn btn-primary" type="sumit">
                  <i class="fas fa-search fa-sm"></i>
              </button>
@@ -50,12 +50,12 @@
              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <i class="fas fa-bell fa-fw"></i>
                  <!-- Counter - Alerts -->
-                 <span class="badge badge-danger badge-counter">3+</span>
+                 <span class="badge badge-danger badge-counter"></span>
              </a>
              <!-- Dropdown - Alerts -->
              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                  <h6 class="dropdown-header">
-                     Alerts Center
+                     Thông báo
                  </h6>
                  <a class="dropdown-item d-flex align-items-center" href="#">
                      <!-- <div class="mr-3">
@@ -77,12 +77,12 @@
              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <i class="fas fa-envelope fa-fw"></i>
                  <!-- Counter - Messages -->
-                 <span class="badge badge-danger badge-counter">7</span>
+                 <span class="badge badge-danger badge-counter"></span>
              </a>
              <!-- Dropdown - Messages -->
              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                  <h6 class="dropdown-header">
-                     Message Center
+                     Tin nhắn
                  </h6>
                  <a class="dropdown-item d-flex align-items-center" href="#">
                      <!-- <div class="dropdown-list-image mr-3">
@@ -112,17 +112,17 @@
              <!-- Dropdown - User Information -->
              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                  <a class="dropdown-item" href="#">
-                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Hồ sơ
                  </a>
                  <a class="dropdown-item" href="#">
-                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Cài đặt
                  </a>
                  <a class="dropdown-item" href="#">
-                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
+                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Hoạt động
                  </a>
                  <div class="dropdown-divider"></div>
                  <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal" href="#">
-                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Đăng xuất
 
                  </a>
 

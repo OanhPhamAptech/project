@@ -33,8 +33,8 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
-                  <!-- Nav Item - Dashboard -->
-                  <li class="nav-item active ">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active ">
                     <a class="nav-link " href="/admin/user"><i class="fa-sharp fa-solid fa-users"></i> Quản lý User</a>
                 </li>
                 <hr class="sidebar-divider">
@@ -71,7 +71,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    
+
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Danh sách nhân viên</h1>
@@ -79,49 +79,44 @@
                         <a href="/admin/add_user" class="btn mr-2" style="float: right; background-color: #3b4a6b; color: rgba(255,255,255,.8)"> Thêm tài khoản </a>
                     </div>
                     <br>
-                  
+
                     <!-- Product list -->
                     <div class="card shadow mb-4">
 
-                    <div class="card-body">
+                        <div class="card-body">
                             <div class="table-responsive">
-                            @if(session()->has('success'))
+                                @if(session()->has('success'))
                                 <div class="alert alert-success">
                                     {{ session()->get('success') }}
                                 </div>
                                 @endif
-                              
+
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                           <th>No.</th>
                                             <th>Tên</th>
                                             <th>Email</th>
-                                            <th>Level</th>
-                                            <th>Role</th>
-                                            
+                                            <th>Mức độ</th>
+                                            <th>Vai trò</th>
                                             <th width="15%"></th>
-
-
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         @foreach($users as $user)
                                         <tr>
-                                            <td></td>
                                             <td>{{ $user ->name}}</td>
                                             <td>{{ $user ->email}}</td>
                                             <th>{{ $user ->level}}</th>
                                             <th> @if($user ->level =='1') admin @else Nhân viên @endif</th>
-                                            
-                                            
+
+
                                             <td class="d-flex justify-content-center">
                                                 <a class="p-1 m-1 btn btn-primary" href="/admin/edit_user/{{$user->id}}">Sửa</a>
-                                                <form action="delete_user/{{$user->id}}"  method="post" onsubmit="return confirm('Bạn có muốn xóa?')">
-                                                @method('delete')
-                                                @csrf
-                                                <button type = "submit" class="p-1 btn btn-danger m-1">Xóa</button>
+                                                <form action="delete_user/{{$user->id}}" method="post" onsubmit="return confirm('Bạn có muốn xóa?')">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="p-1 btn btn-danger m-1">Xóa</button>
                                                 </form>
                                             </td>
                                         </tr>

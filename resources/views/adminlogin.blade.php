@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Welcome Admin</title>
+    <title>Xin chào quản lý</title>
 
 
     <!-- Fonts -->
@@ -32,11 +32,13 @@
                                 <div class="hidden m-4  sm:block " style="text-align: center;">
                                     @auth
                                     <h6>Welcome {{Auth::user()->name}}</h6>
-                                    <a href="{{ url('/admin') }}" class="btn btn-primary btn-user">Go to Admin Page</a>
+                                    <a href="{{ url('/admin') }}" class="btn btn-primary btn-user">Chuyển tới trang quản lý</a>
                                     @else
-                                    <h6 >Click Continue to proceed, if you don't an account, contact your Administrator </h6>
+                                    <h6 >
+                                        Nhấn tiếp tục để chuyển tới trang quản lý, nếu không có tài khoản liên hệ với người quản lý
+                                    </h6>
 
-                                    <a href="{{ route('login') }}" class=" btn btn-primary btn-user" >Continue</a>
+                                    <a href="{{ route('login') }}" class=" btn btn-primary btn-user" >Tiếp tục</a>
                                     
 
                                     @endauth

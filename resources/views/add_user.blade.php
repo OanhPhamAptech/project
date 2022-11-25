@@ -91,18 +91,18 @@
                                 Email <br>
                                 <input type="email" name="email" required class="table-bordered"><br><br>
                                 <div>
-                                    <label for="level">Level </label>
+                                    <label for="level">Mức độ</label>
                                     <select name="level" class="table-bordered" id="level" onChange="select()">
                                         <option value="1">1</option>
                                         <option value="0">0</option>
                                     </select>
                                 </div><br>
 
-                                <label for="role">Role </label> <br>
+                                <label for="role">Vai trò</label> <br>
                                 <input type="text" name="role" class="table-bordered" id="role" disabled>
 
                                 <br><br>
-                                password <br>
+                                Mật khẩu<br>
                                 <input type="password" name="password" required class="table-bordered"><br><br>
 
                                 <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
