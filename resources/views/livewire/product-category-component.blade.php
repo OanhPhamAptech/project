@@ -26,7 +26,7 @@
             <div class="card-body">
               <div class="detail-box">
                 <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
-                <h6>Price:<span>{{number_format($product->price)}} VNĐ</span></h6>
+                <h6>Giá: <span>{{number_format($product->price)}} VNĐ</span></h6>
               </div>
               <div class="new d-none">
                 <span> New </span>

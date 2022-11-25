@@ -1,7 +1,9 @@
 <div class="container">
   <!-- widget categoris -->
-  <div class="product-category">
-    <div></div>
+  <div class="product-category d-flex justify-content-between pb-2">
+    <div>
+      <h3>Hãng: Tất cả</h3>
+    </div>
     <div class="widget categories-widget" id="categories-widget">
       <div class="widget-content">
         <ul class="list-category">
@@ -24,7 +26,7 @@
           <div class="card-body">
             <div class="detail-box">
               <h6> {{$product->ProductName}} {{$product->SizeName}}</h6>
-              <h6>Price:<span>{{number_format($product->price)}} VNĐ</span></h6>
+              <h6>Giá: <span>{{number_format($product->price)}} VNĐ</span></h6>
             </div>
             <div class="new d-none">
               <span> New </span>

@@ -70,7 +70,7 @@
                 <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
               </div>
               <div class="wrap-price">
-                <span class="product-price">Giá: ${{number_format($size->Price)}} </span>
+                <span class="product-price">Giá: {{number_format($size->Price)}} VNĐ </span>
               </div>
               <div class="stock-info in-stock">
                 <p class="color">Màu: <b></b></p>
