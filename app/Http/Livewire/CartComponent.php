@@ -13,7 +13,7 @@ class CartComponent extends Component
   {
 
     \Cart::remove($id);
-    session()->flash('success_message', 'Item removed');
+    session()->flash('success_message', 'Sản phẩm đã xóa');
   }
 
   // clear all item
@@ -45,14 +45,15 @@ class CartComponent extends Component
       $this->emit('checkout');
       return redirect()->route('checkout');
     } else {
-      session()->flash('success_message', 'Bạn chưa chọn sản phẩm ');
+      session()->flash('success_message', 'Bạn chưa chọn sản phẩm');
     }
   }
   public function render()
   {
-
     $CartItems = \Cart::Content();
-
+    if(count(\Cart::Content()) > 0){
+      session()->flash('success_message', 'Sản phẩm đã được thêm vào giỏ hàng');
+    }
     return view('livewire.cart-component')->layout("layouts.base");
   }
 }

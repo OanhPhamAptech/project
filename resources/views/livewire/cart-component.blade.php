@@ -13,7 +13,7 @@
         <div class="wrap-iten-in-cart">
           @if (Session::has('success_message'))
           <div class="alert alert-success">
-            <strong>Success</strong> {{Session::get('success_message')}}
+            <strong>{{Session::get('success_message')}}</strong>
           </div>
           @endif
 
@@ -66,7 +66,7 @@
               <h4 class="title-box">Thông tin tóm tắt</h4>
               <p class="summary-info"><span class="title">Giá:</span><b class="index">{{Cart::subtotal()}} VNĐ</b></p>
               <p class="summary-info"><span class="title">Giao hàng:</span><b class="index">Miễn phí</b></p>
-              <p class="summary-info total-info "><span class="title">Tổng:</span><b class="index">{{Cart::total()}} VNĐ</b></p>
+              <p class="summary-info total-info "><span class="title">Tổng:</span><b class="index">{{Cart::subtotal()}} VNĐ</b></p>
             </div>
             <div class="col-12 col-md-2"></div>
             <div class=" col-12 col-md-3 checkout-info">
